@@ -1,0 +1,108 @@
+{
+    "swagger": {
+        "definition": {
+            "openapi": "3.0.0",
+            "info": {
+                "title": "School Management APIs Doc",
+                "version": "0.1.0",
+                "description": "",
+                "contact": {
+                    "name": "The World Wolf 95",
+                    "url": "https://schoolv1.edigrp.com",
+                    "email": "admin@edigrp.com"
+                },
+                "x-logo": {
+                    "url": "" 
+                },
+                "x-icon": {
+                    "url":  "" 
+                }
+            },
+            "servers": [
+                {
+                    "url": "https://web.schoolv1.edigrp.com",
+                    "description": "The backend path base you can use this path like backend path base url.",
+                    "variables": {}
+                }
+            ],
+            "paths": {
+                "/levels": {},
+                "/levels/{levelId}/subject": {},
+                "/levels/{levelId}/subjects": {},
+                "/levels/{levelId}/subjects/{subjectId}": {},
+                "/levels/{levelId}/classroom": {},
+                "/levels/{levelId}/classrooms": {},
+                "/levels/{levelId}/classrooms/{classroomId}": {},
+                "/levels/{levelId}/student": {},
+                "/levels/{levelId}/students": {},
+                "/levels/{levelId}/students/{studentId}": {},
+                "/levels/{levelId}/teacher": {},
+                "/levels/{levelId}/teachers": {},
+                "/levels/{levelId}/teachers/{teacherId}": {},
+                "/objects/count": {}
+            },
+            "components": {
+                "schemas": {
+                    "Level": {},
+                    "Classroom": {},
+                    "Subject": {},
+                    "Student": {},
+                    "Teacher": {}
+                }
+            }
+        },
+        "apis": ["../config/routes.js"]
+    },
+    "redoc": {
+        "openapi": "3.0.0",
+        "info": {
+            "title": "School Management APIs Doc",
+            "version": "0.1.0",
+            "description": "",
+            "contact": {
+                "name": "The World Wolf 95",
+                "url": "https://schoolv1.edigrp.com",
+                "email": "admin@edigrp.com"
+            },
+            "x-logo": {
+                "url": "logo.png" 
+            },
+            "x-icon": {
+                "url": "logo.svg"
+            }
+        },
+        "servers": [
+            {
+                "url": "",
+                "description": "C'est l'url du backend vous pouvez l'utiliser pour realiser des tests.",
+                "variables": {}
+            }
+        ],
+        "paths": {
+            "/levels": {},
+            "/levels/{levelId}/subject": {},
+            "/levels/{levelId}/subjects": {},
+            "/levels/{levelId}/subjects/{subjectId}": {},
+            "/levels/{levelId}/classroom": {},
+            "/levels/{levelId}/classrooms": {},
+            "/levels/{levelId}/classrooms/{classroomId}": {},
+            "/levels/{levelId}/student": {},
+            "/levels/{levelId}/students": {},
+            "/levels/{levelId}/students/{studentId}": {},
+            "/levels/{levelId}/teacher": {},
+            "/levels/{levelId}/teachers": {},
+            "/levels/{levelId}/teachers/{teacherId}": {},
+            "/objects/count": {}
+        },
+        "components": {
+            "schemas": {
+                "Level": {},
+                "Classroom": {},
+                "Subject": {},
+                "Student": {},
+                "Teacher": {}
+            }
+        },
+        "apis": ["../config/routes.js"]
+    }
+}

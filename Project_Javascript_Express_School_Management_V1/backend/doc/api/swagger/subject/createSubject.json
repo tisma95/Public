@@ -1,0 +1,188 @@
+{
+    "summary": "Create new subject",
+    "description": "This API permits to create in database new subject of specific level.",
+    "tags": ["Subject APIs"],
+    "parameters": [
+        {
+            "name": "levelId",
+            "in": "path",
+            "description": "The level id",
+            "required": true,
+            "schema": {
+                "type": "string"
+            }
+        }
+    ],
+    "requestBody": {
+        "description": "The body which describes what subject will be created.",
+        "content": {
+            "application/json": {
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "required": true,
+                            "minLength": 2,
+                            "maxLength": 45,
+                            "description": "The name of subject"
+                        }
+                    },
+                    "example": {
+                        "name": "Reading"
+                    }
+                }
+            }
+        }
+    },
+    "responses": {
+        "201": {
+            "description": "Server created the subject successfully",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "data": {
+                                "type": "object",
+                                "properties": {
+                                    "createdAt": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "description": "The creation date and time (in ISO 8601) of student"
+                                    },
+                                    "updatedAt": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "description": "The last updated date and time (in ISO 8601) of student"
+                                    },
+                                    "id": {
+                                        "type": "string",
+                                        "description": "The id of student"
+                                    },
+                                    "firstName": {
+                                        "type": "string",
+                                        "required": true,
+                                        "minLength": 2,
+                                        "maxLength": 100,
+                                        "description": "The first name of student"
+                                    },
+                                    "lastName": {
+                                        "type": "string",
+                                        "required": true,
+                                        "minLength": 2,
+                                        "maxLength": 100,
+                                        "description": "The last name of student"
+                                    },
+                                    "birthday": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "required": true,
+                                        "description": "The birthday date of student (in ISO 8601)"
+                                    },
+                                    "level": {
+                                        "type": "string",
+                                        "required": true,
+                                        "description": "The id of student's level"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The subject has been created successfully",
+                        "data": {
+                            "id": "d1e8d0a4-b31b-47f4-9fb3-8b5e158d1dae",
+                            "name": "Reading",
+                            "level": "745c4681-bec1-4601-be0a-d01ef60323c1",
+                            "updatedAt": "2020-11-16T18:13:59.366Z",
+                            "createdAt": "2020-11-16T18:13:59.366Z"
+                        }
+                    }
+                }
+            }
+        },
+        "409": {
+            "description": "Server found the same subject in level",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "message": {
+                                "type": "string",
+                                "description": "The message which describes that subject already exist"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The subject has been found successfully",
+                        "message": "Level which id=745c4681-bec1-4601-be0a-d01ef60323c1 has already a subject=Reading"
+                    }
+                }
+            }
+        },
+        "401": {
+            "description": "Server not found the level or subject's body has not correct",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "data": {
+                                "type": "string",
+                                "format": "null",
+                                "description": "Null value data (only when level not found)"
+                            },
+                            "message": {
+                                "type": "string",
+                                "description": "The message which describes that level not found"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "Level not found",
+                        "data": null,
+                        "message": "Level with id=745c4681-bec1-4601-be0a-d01ef60323c1A not found"
+                    }
+                }
+            }
+        },
+        "505": {
+            "description": "Server met an internal error",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "error": {
+                                "type": "string",
+                                "description": "The error message"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The database met the error",
+                        "error": "HttpServicess is not defined"
+                    }
+                }
+            }
+        }
+    }
+}

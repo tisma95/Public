@@ -1,0 +1,176 @@
+{
+    "summary": "Get all classrooms of level",
+    "description": "This API permits to fetch all classrooms of level.",
+    "tags": ["Classroom APIs"],
+    "parameters": [
+        {
+            "name": "levelId",
+            "in": "path",
+            "description": "The level id",
+            "required": true,
+            "schema": {
+                "type": "string"
+            }
+        }
+    ],
+    "responses": {
+        "200": {
+            "description": "Server found the classrooms successfully",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "data": {
+                                "type": "array",
+                                "description": "The array of level classrooms",
+                                "items": {
+                                    "type": "object",
+                                    "properties":  {
+                                        "createdAt": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "description": "The creation date and time (in ISO 8601) of classroom"
+                                        },
+                                        "updatedAt": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "description": "The last updated date and time (in ISO 8601) of classroom"
+                                        },
+                                        "id": {
+                                            "type": "string",
+                                            "description": "The id of classroom"
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "required": true,
+                                            "minLength": 2,
+                                            "maxLength": 45,
+                                            "description": "The name of classroom"
+                                        },
+                                        "capacity": {
+                                            "type": "number",
+                                            "required": true,
+                                            "minimun": 2,
+                                            "maximum": 200,
+                                            "description": "The max capacity of classroom"
+                                        },
+                                        "level": {
+                                            "type": "string",
+                                            "required": true,
+                                            "description": "The id of classroom's level"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The classrooms have been found successfully",
+                        "data": [
+                            {
+                                "id": "f262cdb7-771d-41cf-8568-e454f19f0b0e",
+                                "name": "Master 1",
+                                "capacity": "10",
+                                "level": "745c4681-bec1-4601-be0a-d01ef60323c1",
+                                "createdAt": "2020-11-18 18:16:20",
+                                "updatedAt": "2020-11-18 18:16:20"
+                            },
+                            {
+                                "id": "6449943d-6209-4bf0-a88b-9c16d729d0ae",
+                                "name": "Master 2",
+                                "capacity": "100",
+                                "level": "745c4681-bec1-4601-be0a-d01ef60323c1",
+                                "createdAt": "2020-11-18 18:19:51",
+                                "updatedAt": "2020-11-18 18:19:51"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "401": {
+            "description": "Server not found the level",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "data": {
+                                "type": "string",
+                                "format": "null",
+                                "description": "Null value data (only when level not found)"
+                            },
+                            "message": {
+                                "type": "string",
+                                "description": "The message which describes that level not found"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "Level not found",
+                        "data": null,
+                        "message": "Level with id=745c4681-bec1-4601-be0a-d01ef60323c1A not found"
+                    }
+                }
+            }
+        },
+        "404": {
+            "description": "Server found empty classroom of level",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "data": {
+                                "type": "string",
+                                "format": "null",
+                                "description": "Null value data"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "Classrooms not found",
+                        "data": null
+                      }
+                }
+            }
+        },
+        "505": {
+            "description": "Server met an internal error",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "error": {
+                                "type": "string",
+                                "description": "The error message"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The database met the error",
+                        "error": "HttpServicess is not defined"
+                    }
+                }
+            }
+        }
+    }
+}

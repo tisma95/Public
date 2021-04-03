@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date de création de la matière (en format ISO 8601)"
+        },
+        "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date de dernière mise à jour de la matière (en format ISO 8601)"
+        },
+        "id": {
+            "type": "string",
+            "description": "Identifiant unique de la matière"
+        },
+        "name": {
+            "type": "string",
+            "required": true,
+            "minLength": 2,
+            "maxLength": 45,
+            "description": "Nom de la matière"
+        },
+        "level": {
+            "type": "string",
+            "required": true,
+            "description": "Identifiant unique du niveau d'enseignement de la matière"
+        }
+    }
+}

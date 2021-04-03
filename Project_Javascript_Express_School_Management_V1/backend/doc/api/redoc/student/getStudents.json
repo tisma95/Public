@@ -1,0 +1,184 @@
+{
+    "summary": "Obtenir tous les élèves",
+    "description": "Cette API permet de rechercher dans la base de données tous les élèves pour un niveau d'étude donné.",
+    "tags": ["Elève"],
+    "parameters": [
+        {
+            "name": "levelId",
+            "in": "path",
+            "description": "Identifiant unique du niveau d'étude",
+            "required": true,
+            "schema": {
+                "type": "string"
+            }
+        }
+    ],
+    "responses": {
+        "200": {
+            "description": "Le serveur a trouvé les élèves avec succès",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "Le statut de la réponse"
+                            },
+                            "data": {
+                                "type": "array",
+                                "description": "Liste des élèves du niveau d'étude",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "createdAt": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "description": "Date de création de l'élève (en format ISO 8601)"
+                                        },
+                                        "updatedAt": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "description": "Date de dernière mise à jour de l'élève (en format ISO 8601)"
+                                        },
+                                        "id": {
+                                            "type": "string",
+                                            "description": "Identifiant unique de l'élève"
+                                        },
+                                        "firstName": {
+                                            "type": "string",
+                                            "required": true,
+                                            "minLength": 2,
+                                            "maxLength": 100,
+                                            "description": "Prénom(s) de l'élève"
+                                        },
+                                        "lastName": {
+                                            "type": "string",
+                                            "required": true,
+                                            "minLength": 2,
+                                            "maxLength": 100,
+                                            "description": "Nom de l'élève"
+                                        },
+                                        "birthday": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "required": true,
+                                            "description": "Date de naissance de l'élève (en format ISO 8601)"
+                                        },
+                                        "level": {
+                                            "type": "string",
+                                            "required": true,
+                                            "description": "Identifiant unique du niveau d'étude de l'élève"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The students have been found successfully",
+                        "data": [
+                            {
+                                "id": "5f808450-7eea-4533-8316-3673675b6860",
+                                "firstName": "John",
+                                "lastName": "DOE",
+                                "birthday": "1995-03-03",
+                                "level": "745c4681-bec1-4601-be0a-d01ef60323c1",
+                                "createdAt": "2020-11-19 15:25:00",
+                                "updatedAt": "2020-11-19 15:25:00"
+                            },
+                            {
+                                "id": "1e10ecb5-df06-4e86-849e-60e66590ca36",
+                                "firstName": "Johana",
+                                "lastName": "DASH",
+                                "birthday": "1997-03-03",
+                                "level": "745c4681-bec1-4601-be0a-d01ef60323c1",
+                                "createdAt": "2020-11-19 15:30:05",
+                                "updatedAt": "2020-11-19 15:30:05"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "401": {
+            "description": "Le serveur n'a pas trouvé le niveau d'étude spécifié",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "Le statut de la réponse"
+                            },
+                            "data": {
+                                "type": "string",
+                                "format": "null",
+                                "description": "Valeur nulle dans le cas où le niveau d'étude n'a pas été trouvé"
+                            },
+                            "message": {
+                                "type": "string",
+                                "description": "Message spécifiant que le niveau d'étude n'a pas été trouvé"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "Level not found",
+                        "data": null,
+                        "message": "Level with id=745c4681-bec1-4601-be0a-d01ef60323c1A not found"
+                    }
+                }
+            }
+        },
+        "404": {
+            "description": "Le serveur n'a pas trouvé d'élèves pour le niveau spécifié",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "Le statut de la réponse"
+                            },
+                            "data": {
+                                "type": "string",
+                                "format": "null",
+                                "description": "Valeur nulle"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "Students not found",
+                        "data": null
+                    }
+                }
+            }
+        },
+        "505": {
+            "description": "Le serveur a rencontré une erreur interne",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "Le statut de la réponse"
+                            },
+                            "error": {
+                                "type": "string",
+                                "description": "Le message d'erreur"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The database met the error",
+                        "error": "HttpServicess is not defined"
+                    }
+                }
+            }
+        }
+    }
+}

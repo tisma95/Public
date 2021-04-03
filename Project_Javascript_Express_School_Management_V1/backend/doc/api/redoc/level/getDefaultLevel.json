@@ -1,0 +1,129 @@
+{
+    "summary": "Obtenir les niveaux d'étude par défaut",
+    "description": "Cette API permet d'obtenir la liste de tous les niveaux d'étude par défaut.",
+    "tags": ["Niveau d'étude"],
+    "responses": {
+        "200": {
+            "description": "Le serveur a trouvé les niveaux d'études avec succès",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "Le statut de la réponse"
+                            },
+                            "data": {
+                                "type": "array",
+                                "description": "Liste des niveaux d'étude",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "createdAt": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "description": "Date de création du niveau d'étude (en format ISO 8601)"
+                                        },
+                                        "updatedAt": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "description": "Date de dernière mise à jour du niveau d'étude (en format ISO 8601)"
+                                        },
+                                        "id": {
+                                            "type": "string",
+                                            "description": "Identifiant unique du niveau d'étude"
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "required": true,
+                                            "description": "Nom du niveau d'étude. Il doit être unique"
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "example": {
+                            "status": "The levels have found successfully",
+                            "data": [
+                                {
+                                    "id": "745c4681-bec1-4601-be0a-d01ef60323c1",
+                                    "name": "PRIMARY",
+                                    "createdAt": "2020-11-14 10:00:25",
+                                    "updatedAt": "2020-11-14 10:00:25"
+                                },
+                                {
+                                    "id": "42973048-08d1-42bc-ae70-618e78d523f5",
+                                    "name": "COLLEGE",
+                                    "createdAt": "2020-11-14 10:00:25",
+                                    "updatedAt": "2020-11-14 10:00:25"
+                                },
+                                {
+                                    "id": "470e2be3-0d1a-4435-ac06-db50566c89ce",
+                                    "name": "HIGH_SCHOOL",
+                                    "createdAt": "2020-11-14 10:00:25",
+                                    "updatedAt": "2020-11-14 10:00:25"
+                                },
+                                {
+                                    "id": "e7233e9a-1ed9-4c21-996a-3fccf1a9ccc8",
+                                    "name": "UNIVERSITY",
+                                    "createdAt": "2020-11-14 10:00:25",
+                                    "updatedAt": "2020-11-14 10:00:25"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "404": {
+            "description": "Le serveur n'a pas trouvé de niveau d'étude",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "Le statut de la réponse"
+                            },
+                            "data": {
+                                "type": "string",
+                                "format": "null",
+                                "description": "Valeur nulle"
+                            }
+                        }
+                    },
+                    "example":  {
+                        "status": "Levels not found",
+                        "data": null
+                    }
+                }
+            }
+        },
+        "505": {
+            "description": "Le serveur a rencontré une erreur interne",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "Le statut de la réponse"
+                            },
+                            "error": {
+                                "type": "string",
+                                "description": "Le message d'erreur"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The database met the error",
+                        "error": "HttpServicess is not defined"
+                    }
+                }
+            }
+        }
+    }
+}

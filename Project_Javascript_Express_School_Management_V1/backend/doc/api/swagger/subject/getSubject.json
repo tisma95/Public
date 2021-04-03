@@ -1,0 +1,135 @@
+{
+    "summary": "Get subject of level by id",
+    "description": "This API permits to fetch the subject of level identified by its id.",
+    "tags": ["Subject APIs"],
+    "parameters": [
+        {
+            "name": "levelId",
+            "in": "path",
+            "description": "The level id",
+            "required": true,
+            "schema": {
+                "type": "string"
+            }
+        },
+        {
+            "name": "subjectId",
+            "in": "path",
+            "description": "The subject id",
+            "required": true,
+            "schema": {
+                "type": "string"
+            }
+        }
+    ],
+    "responses": {
+        "200": {
+            "description": "Server found the subject successfully",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "data": {
+                                "type": "object",
+                                "properties": {
+                                    "createdAt": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "description": "The creation date and time (in ISO 8601) of subject"
+                                    },
+                                    "updatedAt": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "description": "The last updated date and time (in ISO 8601) of subject"
+                                    },
+                                    "id": {
+                                        "type": "string",
+                                        "description": "The id of subject"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "required": true,
+                                        "description": "The name of subject"
+                                    },
+                                    "level": {
+                                        "type": "string",
+                                        "required": true,
+                                        "description": "The id of subject's level"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The subject has been found successfully",
+                        "data": {
+                            "id": "d1e8d0a4-b31b-47f4-9fb3-8b5e158d1dae",
+                            "name": "Reading",
+                            "level": "745c4681-bec1-4601-be0a-d01ef60323c1",
+                            "createdAt": "2020-11-16 18:13:59",
+                            "updatedAt": "2020-11-16 18:13:59"
+                        }
+                    }
+                }
+            }
+        },
+        "401": {
+            "description": "Server not found the level or subject",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "data": {
+                                "type": "string",
+                                "format": "null",
+                                "description": "Null value data (only when level not found)"
+                            },
+                            "message": {
+                                "type": "string",
+                                "description": "The message which describes that level or subject not found"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "Subject not found",
+                        "message": "Subject with id=d1e8d0a4-b31b-47f4-9fb3-8b5e158d1daez not found"
+                    }
+                }
+            }
+        },
+        "505": {
+            "description": "Server met an internal error",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "error": {
+                                "type": "string",
+                                "description": "The error message"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The database met the error",
+                        "error": "HttpServicess is not defined"
+                    }
+                }
+            }
+        }
+    }
+}

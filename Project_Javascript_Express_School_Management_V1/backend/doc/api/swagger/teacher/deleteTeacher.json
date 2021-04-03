@@ -1,0 +1,99 @@
+{
+    "summary": "Delete a teacher",
+    "description": "This API permits to delete an existing teacher.",
+    "tags": ["Teacher APIs"],
+    "parameters": [
+        {
+            "name": "levelId",
+            "in": "path",
+            "description": "The level id",
+            "required": true,
+            "schema": {
+                "type": "string"
+            }
+        },
+        {
+            "name": "teacherId",
+            "in": "path",
+            "description": "The teacher id",
+            "required": true,
+            "schema": {
+                "type": "string"
+            }
+        }
+    ],
+    "responses": {
+        "200": {
+            "description": "Server deleted the teacher successfully",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The teacher has been deleted successfully"
+                    }
+                }
+            }
+        },
+        "401": {
+            "description": "Server not found the level or teacher not associated to level",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "data": {
+                                "type": "string",
+                                "format": "null",
+                                "description": "Null value data (only when level not found)"
+                            },
+                            "message": {
+                                "type": "string",
+                                "description": "The message which describes that teacher not found"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "Teacher not found",
+                        "message": "Teacher with id=8ffb4b22-3bc4-43f5-adfa-1ad56e718b33 not found"
+                    }
+                }
+            }
+        },
+        "505": {
+            "description": "Server met an internal error",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "error": {
+                                "type": "string",
+                                "description": "The error message"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The database met the error",
+                        "error": "HttpServicess is not defined"
+                    }
+                }
+            }
+        }
+    }
+}

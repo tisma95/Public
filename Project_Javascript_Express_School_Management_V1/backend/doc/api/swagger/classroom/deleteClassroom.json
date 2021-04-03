@@ -1,0 +1,99 @@
+{
+    "summary": "Delete a classroom",
+    "description": "This API permits to delete an existing classroom.",
+    "tags": ["Classroom APIs"],
+    "parameters": [
+        {
+            "name": "levelId",
+            "in": "path",
+            "description": "The level id",
+            "required": true,
+            "schema": {
+                "type": "string"
+            }
+        },
+        {
+            "name": "classroomId",
+            "in": "path",
+            "description": "The classroom id",
+            "required": true,
+            "schema": {
+                "type": "string"
+            }
+        }
+    ],
+    "responses": {
+        "200": {
+            "description": "Server deleted the classroom successfully",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The classroom has been deleted successfully"
+                    }
+                }
+            }
+        },
+        "401": {
+            "description": "Server not found the level or classroom not associated to level",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "data": {
+                                "type": "string",
+                                "format": "null",
+                                "description": "Null value data (only when level not found)"
+                            },
+                            "message": {
+                                "type": "string",
+                                "description": "The message which describes that classroom not found"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "Classroom not found",
+                        "message": "Classroom with id=8ffb4b22-3bc4-43f5-adfa-1ad56e718b33 not found"
+                    }
+                }
+            }
+        },
+        "505": {
+            "description": "Server met an internal error",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "error": {
+                                "type": "string",
+                                "description": "The error message"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The database met the error",
+                        "error": "HttpServicess is not defined"
+                    }
+                }
+            }
+        }
+    }
+}

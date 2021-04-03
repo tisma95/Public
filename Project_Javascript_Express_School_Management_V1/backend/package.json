@@ -1,0 +1,40 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "It is the backend application with Express of school management application version 1 ",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha",
+    "local": "nodemon app.js",
+    "serve": "pm2 start app.js",
+    "debug": "node --inspect app.js",
+    "redoc": "node ./doc/redocapidoc.js",
+    "generatedoc": "redoc-cli bundle ./doc/dist/redocoptions.json --output ./doc/dist/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nobodyiam95/Project_Javascript_Express_School_Management_V1.git"
+  },
+  "author": "The World Wolf 95",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nobodyiam95/Project_Javascript_Express_School_Management_V1/issues"
+  },
+  "homepage": "https://github.com/nobodyiam95/Project_Javascript_Express_School_Management_V1#readme",
+  "dependencies": {
+    "@hapi/joi": "^17.1.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "lodash": "^4.17.15",
+    "mocha": "^8.2.0",
+    "mysql2": "^2.1.0",
+    "nodemon": "^2.0.2",
+    "sequelize": "^5.21.5",
+    "swagger-jsdoc": "^5.0.1",
+    "swagger-ui-express": "^4.1.4"
+  },
+  "devDependencies": {
+    "supertest": "^5.0.0",
+    "redoc-cli": "^0.9.13"
+  }
+}

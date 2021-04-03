@@ -1,0 +1,77 @@
+{
+    "summary": "Get the count of objects",
+    "description": "This API permits to fetch the number of objects which are created in database.",
+    "tags": ["Utility API"],
+    "responses": {
+        "200": {
+            "description": "Server returns the count of objects successfully",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "data": {
+                                "type": "object",
+                                "properties": {
+                                    "STUDENTS_COUNT": {
+                                        "type": "number",
+                                        "description": "The number of registered students"
+                                    },
+                                    "TEACHERS_COUNT": {
+                                        "type": "number",
+                                        "description": "The number of registered teachers"
+                                    },
+                                    "SUBJECTS_COUNT": {
+                                        "type": "number",
+                                        "description": "The number of registered subjects"
+                                    },
+                                    "CLASSROOMS_COUNT": {
+                                        "type": "number",
+                                        "description": "The number of registered classrooms"
+                                    }
+                                }
+                            }
+                        },
+                        "example": {
+                            "status": "The ressources have been found successfully",
+                            "data": {
+                                "STUDENTS_COUNT": 1,
+                                "TEACHERS_COUNT": 1,
+                                "SUBJECTS_COUNT": 1,
+                                "CLASSROOMS_COUNT": 1
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "505": {
+            "description": "Server met an internal error",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "error": {
+                                "type": "string",
+                                "description": "The error message"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The database met the error",
+                        "error": "HttpServicess is not defined"
+                    }
+                }
+            }
+        }
+    }
+}

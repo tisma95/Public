@@ -1,0 +1,184 @@
+{
+    "summary": "Get all teachers of level",
+    "description": "This API permits to fetch all teachers of level.",
+    "tags": ["Teacher APIs"],
+    "parameters": [
+        {
+            "name": "levelId",
+            "in": "path",
+            "description": "The level id",
+            "required": true,
+            "schema": {
+                "type": "string"
+            }
+        }
+    ],
+    "responses": {
+        "200": {
+            "description": "Server found the teachers successfully",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "data": {
+                                "type": "array",
+                                "description": "The array of level teachers",
+                                "items": {
+                                    "type": "object",
+                                    "properties":  {
+                                        "createdAt": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "description": "The creation date and time (in ISO 8601) of teacher"
+                                        },
+                                        "updatedAt": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "description": "The last updated date and time (in ISO 8601) of teacher"
+                                        },
+                                        "id": {
+                                            "type": "string",
+                                            "description": "The id of teacher"
+                                        },
+                                        "firstName": {
+                                            "type": "string",
+                                            "required": true,
+                                            "minLength": 2,
+                                            "maxLength": 100,
+                                            "description": "The first name of teacher"
+                                        },
+                                        "lastName": {
+                                            "type": "string",
+                                            "required": true,
+                                            "minLength": 2,
+                                            "maxLength": 100,
+                                            "description": "The last name of teacher"
+                                        },
+                                        "birthday": {
+                                            "type": "string",
+                                            "format": "date",
+                                            "required": true,
+                                            "description": "The birthday date of teacher (in ISO 8601)"
+                                        },
+                                        "level": {
+                                            "type": "string",
+                                            "required": true,
+                                            "description": "The id of teacher's level"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The teachers have been found successfully",
+                        "data": [
+                            {
+                                "id": "0dc13177-dd90-497e-a5f9-4a22c487ccbd",
+                                "firstName": "Jason",
+                                "lastName": "DOE",
+                                "birthday": "1995-03-03",
+                                "level": "745c4681-bec1-4601-be0a-d01ef60323c1",
+                                "createdAt": "2020-11-19 15:52:44",
+                                "updatedAt": "2020-11-19 15:52:44"
+                            },
+                            {
+                                "id": "23a92584-f819-4084-9f94-259a173a59ae",
+                                "firstName": "Jane",
+                                "lastName": "DOE",
+                                "birthday": "1990-03-03",
+                                "level": "745c4681-bec1-4601-be0a-d01ef60323c1",
+                                "createdAt": "2020-11-19 15:56:08",
+                                "updatedAt": "2020-11-19 15:56:08"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "401": {
+            "description": "Server not found the level",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "data": {
+                                "type": "string",
+                                "format": "null",
+                                "description": "Null value data (only when level not found)"
+                            },
+                            "message": {
+                                "type": "string",
+                                "description": "The message which describes that level not found"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "Level not found",
+                        "data": null,
+                        "message": "Level with id=745c4681-bec1-4601-be0a-d01ef60323c1A not found"
+                    }
+                }
+            }
+        },
+        "404": {
+            "description": "Server found empty teacher of level",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "data": {
+                                "type": "string",
+                                "format": "null",
+                                "description": "Null value data"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "Teachers not found",
+                        "data": null
+                    }
+                }
+            }
+        },
+        "505": {
+            "description": "Server met an internal error",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "error": {
+                                "type": "string",
+                                "description": "The error message"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The database met the error",
+                        "error": "HttpServicess is not defined"
+                    }
+                }
+            }
+        }
+    }
+}

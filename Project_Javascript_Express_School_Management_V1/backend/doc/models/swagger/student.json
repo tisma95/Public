@@ -1,0 +1,44 @@
+{
+    "type": "object",
+    "properties": {
+        "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The creation date and time (in ISO 8601) of student"
+        },
+        "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The last updated date and time (in ISO 8601) of student"
+        },
+        "id": {
+            "type": "string",
+            "description": "The id of student"
+        },
+        "firstName": {
+            "type": "string",
+            "required": true,
+            "minLength": 2,
+            "maxLength": 100,
+            "description": "The first name of student"
+        },
+        "lastName": {
+            "type": "string",
+            "required": true,
+            "minLength": 2,
+            "maxLength": 100,
+            "description": "The last name of student"
+        },
+        "birthday": {
+            "type": "string",
+            "format": "date",
+            "required": true,
+            "description": "The birthday date of student (in ISO 8601)"
+        },
+        "level": {
+            "type": "string",
+            "required": true,
+            "description": "The id of student's level"
+        }
+    }
+}

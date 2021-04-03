@@ -1,0 +1,745 @@
+{
+	"info": {
+		"_postman_id": "56c9b851-dbc1-4f8b-9179-16a08efeb0c2",
+		"name": "School Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Level APIs",
+			"item": [
+				{
+					"name": "Get All levels",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://web.schoolv1.edigrp.com/levels",
+							"protocol": "https",
+							"host": [
+								"web",
+								"schoolv1",
+								"edigrp",
+								"com"
+							],
+							"path": [
+								"levels"
+							]
+						},
+						"description": "This API permits to get all default levels which stored in database."
+					},
+					"response": []
+				}
+			],
+			"description": "This folder contains the API of Level like get all default levels.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "dec00223-cb7b-459a-81e8-7f5e805667f4",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "663c5093-b039-4595-9d0f-0e85e19c616f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Utility APIs",
+			"item": [
+				{
+					"name": "Get Objects Count",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://web.schoolv1.edigrp.com/objects/count",
+							"protocol": "https",
+							"host": [
+								"web",
+								"schoolv1",
+								"edigrp",
+								"com"
+							],
+							"path": [
+								"objects",
+								"count"
+							]
+						},
+						"description": "This API permits to get the count of student, subject, teacher and classroom which are created."
+					},
+					"response": []
+				}
+			],
+			"description": "This folder contains the API Test of Utility like the count of different objects.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c7778080-1f76-42c7-8cda-657b5a568c26",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "5ca9568b-6746-4563-9030-124c65a354b3",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Subject APIs",
+			"item": [
+				{
+					"name": "Create a subject",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Writing\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://web.schoolv1.edigrp.com/levels/745c4681-bec1-4601-be0a-d01ef60323c1/subject",
+							"protocol": "https",
+							"host": [
+								"web",
+								"schoolv1",
+								"edigrp",
+								"com"
+							],
+							"path": [
+								"levels",
+								"745c4681-bec1-4601-be0a-d01ef60323c1",
+								"subject"
+							]
+						},
+						"description": "This API permits to create new subject in a level.\r\n\r\nA subject must have :\r\n+ **name** : the name of subject which is mandatory\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/subject"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all subjects of level",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://web.schoolv1.edigrp.com/levels/745c4681-bec1-4601-be0a-d01ef60323c1/subjects",
+							"protocol": "https",
+							"host": [
+								"web",
+								"schoolv1",
+								"edigrp",
+								"com"
+							],
+							"path": [
+								"levels",
+								"745c4681-bec1-4601-be0a-d01ef60323c1",
+								"subjects"
+							]
+						},
+						"description": "This API permits to get all subjects in a level.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/subjects"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a subject by its id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://web.schoolv1.edigrp.com/levels/745c4681-bec1-4601-be0a-d01ef60323c1/subjects/d1e8d0a4-b31b-47f4-9fb3-8b5e158d1dae",
+							"protocol": "https",
+							"host": [
+								"web",
+								"schoolv1",
+								"edigrp",
+								"com"
+							],
+							"path": [
+								"levels",
+								"745c4681-bec1-4601-be0a-d01ef60323c1",
+								"subjects",
+								"d1e8d0a4-b31b-47f4-9fb3-8b5e158d1dae"
+							]
+						},
+						"description": "This API permits to fetch a subject by its id.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/subjects/{{the_id_of_subject}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a subject by its id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Reading book\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://web.schoolv1.edigrp.com/levels/745c4681-bec1-4601-be0a-d01ef60323c1/subjects/d1e8d0a4-b31b-47f4-9fb3-8b5e158d1dae",
+							"protocol": "https",
+							"host": [
+								"web",
+								"schoolv1",
+								"edigrp",
+								"com"
+							],
+							"path": [
+								"levels",
+								"745c4681-bec1-4601-be0a-d01ef60323c1",
+								"subjects",
+								"d1e8d0a4-b31b-47f4-9fb3-8b5e158d1dae"
+							]
+						},
+						"description": "This API permits to update a subject in a level by its id.\r\n\r\nA subject must have :\r\n+ **name** : the name of subject which is mandatory\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/subjects/{{the_id_of_subject}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a subject by its id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://web.schoolv1.edigrp.com/levels/745c4681-bec1-4601-be0a-d01ef60323c1/subjects/d1e8d0a4-b31b-47f4-9fb3-8b5e158d1dae",
+							"protocol": "https",
+							"host": [
+								"web",
+								"schoolv1",
+								"edigrp",
+								"com"
+							],
+							"path": [
+								"levels",
+								"745c4681-bec1-4601-be0a-d01ef60323c1",
+								"subjects",
+								"d1e8d0a4-b31b-47f4-9fb3-8b5e158d1dae"
+							]
+						},
+						"description": "This API permits to delete a subject by its id.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/subjects/{{the_id_of_subject}}"
+					},
+					"response": []
+				}
+			],
+			"description": "This folder contains the APIs of Subject like :\r\n\r\n+ API which permits to create a subject in level\r\n+ API which permits to get all subjects for level\r\n+ API which permits to get a subject of level by its id\r\n+ API which permits to update a subject of level by its id\r\n+ API which permits to delete a subject of level by its id",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Classroom APIs",
+			"item": [
+				{
+					"name": "Create a classroom",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Master 2\",\r\n    \"capacity\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://web.schoolv1.edigrp.com/levels/745c4681-bec1-4601-be0a-d01ef60323c1/classroom",
+							"protocol": "https",
+							"host": [
+								"web",
+								"schoolv1",
+								"edigrp",
+								"com"
+							],
+							"path": [
+								"levels",
+								"745c4681-bec1-4601-be0a-d01ef60323c1",
+								"classroom"
+							]
+						},
+						"description": "This API permits to create new classroom in a level.\r\n\r\nA classroom must have :\r\n+ **name** : the name of classroom which is mandatory.\r\n+ **capacity** : the capacity of students what the classroom can store. This field is mandatory.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/classroom"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all classrooms of level",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://web.schoolv1.edigrp.com/levels/745c4681-bec1-4601-be0a-d01ef60323c1/classrooms",
+							"protocol": "https",
+							"host": [
+								"web",
+								"schoolv1",
+								"edigrp",
+								"com"
+							],
+							"path": [
+								"levels",
+								"745c4681-bec1-4601-be0a-d01ef60323c1",
+								"classrooms"
+							]
+						},
+						"description": "This API permits to get all classrooms in a level.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/classrooms"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a classroom by its id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://web.schoolv1.edigrp.com/levels/745c4681-bec1-4601-be0a-d01ef60323c1/classrooms/f262cdb7-771d-41cf-8568-e454f19f0b0e",
+							"protocol": "https",
+							"host": [
+								"web",
+								"schoolv1",
+								"edigrp",
+								"com"
+							],
+							"path": [
+								"levels",
+								"745c4681-bec1-4601-be0a-d01ef60323c1",
+								"classrooms",
+								"f262cdb7-771d-41cf-8568-e454f19f0b0e"
+							]
+						},
+						"description": "This API permits to fetch a classroom by its id.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/classrooms/{{the_id_of_classroom}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a classroom by its id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Master 1\",\r\n    \"capacity\": 50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://web.schoolv1.edigrp.com/levels/745c4681-bec1-4601-be0a-d01ef60323c1/classrooms/f262cdb7-771d-41cf-8568-e454f19f0b0e",
+							"protocol": "https",
+							"host": [
+								"web",
+								"schoolv1",
+								"edigrp",
+								"com"
+							],
+							"path": [
+								"levels",
+								"745c4681-bec1-4601-be0a-d01ef60323c1",
+								"classrooms",
+								"f262cdb7-771d-41cf-8568-e454f19f0b0e"
+							]
+						},
+						"description": "This API permits to update a classroom in a level by its id.\r\n\r\nA classroom must have :\r\n+ **name** : the name of classroom which is mandatory.\r\n+ **capacity** : the capacity of students what the classroom can store. This field is mandatory.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/classrooms/{{the_id_of_classroom}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a classroom by its id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://web.schoolv1.edigrp.com/levels/745c4681-bec1-4601-be0a-d01ef60323c1/classrooms/8ffb4b22-3bc4-43f5-adfa-1ad56e718b33",
+							"protocol": "https",
+							"host": [
+								"web",
+								"schoolv1",
+								"edigrp",
+								"com"
+							],
+							"path": [
+								"levels",
+								"745c4681-bec1-4601-be0a-d01ef60323c1",
+								"classrooms",
+								"8ffb4b22-3bc4-43f5-adfa-1ad56e718b33"
+							]
+						},
+						"description": "This API permits to delete a classroom by its id.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/classrooms/{{the_id_of_classroom}}"
+					},
+					"response": []
+				}
+			],
+			"description": "This folder contains the APIs of Classroom like :\r\n\r\n+ API which permits to create a classroom in level\r\n+ API which permits to get all classrooms for level\r\n+ API which permits to get a classroom of level by its id\r\n+ API which permits to update a classroom of level by its id\r\n+ API which permits to delete a classroom of level by its id\r\n",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "7e4cd833-977c-4aa2-ae31-ce8cc52ecf2d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "cefa69ac-9691-4d32-8fde-3a7c94cef344",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Student APIs",
+			"item": [
+				{
+					"name": "Create a student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Doe\",\r\n    \"birthday\": \"1995-03-03\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://web.schoolv1.edigrp.com/levels/745c4681-bec1-4601-be0a-d01ef60323c1/student",
+							"protocol": "https",
+							"host": [
+								"web",
+								"schoolv1",
+								"edigrp",
+								"com"
+							],
+							"path": [
+								"levels",
+								"745c4681-bec1-4601-be0a-d01ef60323c1",
+								"student"
+							]
+						},
+						"description": "This API permits to create new student in a level.\r\n\r\nA student must have :\r\n+ **firstName** : the first name of student it is mandatory.\r\n+ **lastName** : the last name of student it is mandatory.\r\n+ **birthday** : the birthday date of student it is mandatory.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/student"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all students of level",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://web.schoolv1.edigrp.com/levels/745c4681-bec1-4601-be0a-d01ef60323c1/students",
+							"protocol": "https",
+							"host": [
+								"web",
+								"schoolv1",
+								"edigrp",
+								"com"
+							],
+							"path": [
+								"levels",
+								"745c4681-bec1-4601-be0a-d01ef60323c1",
+								"students"
+							]
+						},
+						"description": "This API permits to get all students in a level.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/students"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a student by its id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://web.schoolv1.edigrp.com/levels/745c4681-bec1-4601-be0a-d01ef60323c1/students/5f808450-7eea-4533-8316-3673675b6860",
+							"protocol": "https",
+							"host": [
+								"web",
+								"schoolv1",
+								"edigrp",
+								"com"
+							],
+							"path": [
+								"levels",
+								"745c4681-bec1-4601-be0a-d01ef60323c1",
+								"students",
+								"5f808450-7eea-4533-8316-3673675b6860"
+							]
+						},
+						"description": "This API permits to fetch a student by its id.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/students/{{the_id_of_student}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a student by its id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"John Jason\",\r\n    \"lastName\": \"Doe\",\r\n    \"birthday\": \"1995-03-03\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://web.schoolv1.edigrp.com/levels/745c4681-bec1-4601-be0a-d01ef60323c1/students/5f808450-7eea-4533-8316-3673675b6860",
+							"protocol": "https",
+							"host": [
+								"web",
+								"schoolv1",
+								"edigrp",
+								"com"
+							],
+							"path": [
+								"levels",
+								"745c4681-bec1-4601-be0a-d01ef60323c1",
+								"students",
+								"5f808450-7eea-4533-8316-3673675b6860"
+							]
+						},
+						"description": "This API permits to update a student in a level by its id.\r\n\r\nA student must have :\r\n+ **firstName** : the first name of student it is mandatory.\r\n+ **lastName** : the last name of student it is mandatory.\r\n+ **birthday** : the birthday date of student it is mandatory.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/students/{{the_id_of_student}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a student by its id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/levels/5b27ea44-ff41-4edb-9d90-a777333b83d1/students/851c7bfd-8f2b-403f-8c2d-fc2d09556f52",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"levels",
+								"5b27ea44-ff41-4edb-9d90-a777333b83d1",
+								"students",
+								"851c7bfd-8f2b-403f-8c2d-fc2d09556f52"
+							]
+						},
+						"description": "This API permits to delete a student by its id.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/students/{{the_id_of_student}}"
+					},
+					"response": []
+				}
+			],
+			"description": "This folder contains the APIs of Student like :\r\n\r\n+ API which permits to create a student in level\r\n+ API which permits to get all students for level\r\n+ API which permits to get a student of level by its id\r\n+ API which permits to update a student of level by its id\r\n+ API which permits to delete a student of level by its id\r\n",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "33ae9a65-0b76-4312-b1b1-a8a9cd03afeb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ce2fd835-58a7-4603-a23a-7c45796f99aa",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Teacher APIs",
+			"item": [
+				{
+					"name": "Create a teacher",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Jane\",\r\n    \"lastName\": \"Doe\",\r\n    \"birthday\": \"1990-03-03\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://web.schoolv1.edigrp.com/levels/745c4681-bec1-4601-be0a-d01ef60323c1/teacher",
+							"protocol": "https",
+							"host": [
+								"web",
+								"schoolv1",
+								"edigrp",
+								"com"
+							],
+							"path": [
+								"levels",
+								"745c4681-bec1-4601-be0a-d01ef60323c1",
+								"teacher"
+							]
+						},
+						"description": "This API permits to create new teacher in a level.\r\n\r\nA teacher must has :\r\n+ **firstName** : the first name of teacher it is mandatory.\r\n+ **lastName** : the last name of teacher it is mandatory.\r\n+ **birthday** : the birthday date of teacher it is mandatory.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/teacher"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all teachers of level",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://web.schoolv1.edigrp.com/levels/745c4681-bec1-4601-be0a-d01ef60323c1/teachers",
+							"protocol": "https",
+							"host": [
+								"web",
+								"schoolv1",
+								"edigrp",
+								"com"
+							],
+							"path": [
+								"levels",
+								"745c4681-bec1-4601-be0a-d01ef60323c1",
+								"teachers"
+							]
+						},
+						"description": "This API permits to get all teachers in a level.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/teachers"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a teacher by its id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://web.schoolv1.edigrp.com/levels/745c4681-bec1-4601-be0a-d01ef60323c1/teachers/23a92584-f819-4084-9f94-259a173a59ae",
+							"protocol": "https",
+							"host": [
+								"web",
+								"schoolv1",
+								"edigrp",
+								"com"
+							],
+							"path": [
+								"levels",
+								"745c4681-bec1-4601-be0a-d01ef60323c1",
+								"teachers",
+								"23a92584-f819-4084-9f94-259a173a59ae"
+							]
+						},
+						"description": "This API permits to fetch a teacher by its id.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/teachers/{{the_id_of_teacher}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a teacher by its id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"John Jason\",\r\n    \"lastName\": \"Doe\",\r\n    \"birthday\": \"1993-03-03\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://web.schoolv1.edigrp.com/levels/745c4681-bec1-4601-be0a-d01ef60323c1/teachers/23a92584-f819-4084-9f94-259a173a59ae",
+							"protocol": "https",
+							"host": [
+								"web",
+								"schoolv1",
+								"edigrp",
+								"com"
+							],
+							"path": [
+								"levels",
+								"745c4681-bec1-4601-be0a-d01ef60323c1",
+								"teachers",
+								"23a92584-f819-4084-9f94-259a173a59ae"
+							]
+						},
+						"description": "This API permits to update a teacher in a level by its id.\r\n\r\nA teacher must has :\r\n+ **firstName** : the first name of teacher it is mandatory.\r\n+ **lastName** : the last name of teacher it is mandatory.\r\n+ **birthday** : the birthday date of teacher it is mandatory.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/teachers/{{the_id_of_teacher}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a teacher by its id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/levels/5da93576-bae6-4350-8045-210f0196dd0a/teachers/b6586676-3ed7-4581-9d4f-80443ef8e400",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"levels",
+								"5da93576-bae6-4350-8045-210f0196dd0a",
+								"teachers",
+								"b6586676-3ed7-4581-9d4f-80443ef8e400"
+							]
+						},
+						"description": "This API permits to delete a teacher by its id.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/teachers/{{the_id_of_teacher}}"
+					},
+					"response": []
+				}
+			],
+			"description": "This folder contains the APIs of Teacher like :\r\n\r\n+ API which permits to create a teacher in level\r\n+ API which permits to get all teachers for level\r\n+ API which permits to get a teacher of level by its id\r\n+ API which permits to update a teacher of level by its id\r\n+ API which permits to delete a teacher of level by its id\r\n",
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,200 @@
+{
+    "summary": "Update a classroom",
+    "description": "This API permits to update an existing classroom.",
+    "tags": ["Classroom APIs"],
+    "parameters": [
+        {
+            "name": "levelId",
+            "in": "path",
+            "description": "The level id",
+            "required": true,
+            "schema": {
+                "type": "string"
+            }
+        },
+        {
+            "name": "classroomId",
+            "in": "path",
+            "description": "The classroom id",
+            "required": true,
+            "schema": {
+                "type": "string"
+            }
+        }
+    ],
+    "requestBody": {
+        "description": "The body which describes what classroom will be updated.",
+        "content": {
+            "application/json": {
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "required": true,
+                            "minLength": 2,
+                            "maxLength": 45,
+                            "description": "The name of classroom"
+                        },
+                        "capacity": {
+                            "type": "number",
+                            "required": true,
+                            "minimun": 2,
+                            "maximum": 200,
+                            "description": "The max capacity of classroom"
+                        }
+                    },
+                    "example": {
+                        "name": "Master 1",
+                        "capacity": 50
+                    }
+                }
+            }
+        }
+    },
+    "responses": {
+        "200": {
+            "description": "Server updated the classroom successfully",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "data": {
+                                "type": "object",
+                                "properties": {
+                                    "createdAt": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "description": "The creation date and time (in ISO 8601) of classroom"
+                                    },
+                                    "updatedAt": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "description": "The last updated date and time (in ISO 8601) of classroom"
+                                    },
+                                    "id": {
+                                        "type": "string",
+                                        "description": "The id of classroom"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "required": true,
+                                        "minLength": 2,
+                                        "maxLength": 45,
+                                        "description": "The name of classroom"
+                                    },
+                                    "capacity": {
+                                        "type": "number",
+                                        "required": true,
+                                        "minimun": 2,
+                                        "maximum": 200,
+                                        "description": "The max capacity of classroom"
+                                    },
+                                    "level": {
+                                        "type": "string",
+                                        "required": true,
+                                        "description": "The id of classroom's level"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The classroom has been updated successfully",
+                        "data": {
+                            "id": "f262cdb7-771d-41cf-8568-e454f19f0b0e",
+                            "name": "Master 1",
+                            "capacity": 50,
+                            "level": "745c4681-bec1-4601-be0a-d01ef60323c1",
+                            "createdAt": "2020-11-18 18:16:20",
+                            "updatedAt": "2020-11-18T18:31:05.197Z"
+                        }
+                    }
+                }
+            }
+        },
+        "409": {
+            "description": "Server found the same classroom in level",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "message": {
+                                "type": "string",
+                                "description": "The message which describes that classroom already exist"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The classroom has been found successfully",
+                        "message": "Level which id=745c4681-bec1-4601-be0a-d01ef60323c1 has already a classroom=Master 1"
+                    }
+                }
+            }
+        },
+        "401": {
+            "description": "Server not found the level or body has not correct or classroom not associated to level",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "data": {
+                                "type": "string",
+                                "format": "null",
+                                "description": "Null value data (only when level not found)"
+                            },
+                            "message": {
+                                "type": "string",
+                                "description": "The message which describes that level not found"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "Level not found",
+                        "data": null,
+                        "message": "Level with id=745c4681-bec1-4601-be0a-d01ef60323c1A not found"
+                    }
+                }
+            }
+        },
+        "505": {
+            "description": "Server met an internal error",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "error": {
+                                "type": "string",
+                                "description": "The error message"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The database met the error",
+                        "error": "HttpServicess is not defined"
+                    }
+                }
+            }
+        }
+    }
+}

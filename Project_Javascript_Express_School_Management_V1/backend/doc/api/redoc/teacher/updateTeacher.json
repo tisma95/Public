@@ -1,0 +1,215 @@
+{
+    "summary": "Mise à jour d'un enseignant",
+    "description": "Cette API permet de mettre à jour un enseignant pour un niveau d'étude donné.",
+    "tags": ["Enseignant"],
+    "parameters": [
+        {
+            "name": "levelId",
+            "in": "path",
+            "description": "Identifiant unique du niveau d'étude",
+            "required": true,
+            "schema": {
+                "type": "string"
+            }
+        },
+        {
+            "name": "teacherId",
+            "in": "path",
+            "description": "Identifiant unique de l'enseignant",
+            "required": true,
+            "schema": {
+                "type": "string"
+            }
+        }
+    ],
+    "requestBody": {
+        "description": "L'objet qui décrit les nouveaux attributs de l'enseignant.",
+        "content": {
+            "application/json": {
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "firstName": {
+                            "type": "string",
+                            "required": true,
+                            "minLength": 2,
+                            "maxLength": 100,
+                            "description": "Prénom(s) de l'enseignant"
+                        },
+                        "lastName": {
+                            "type": "string",
+                            "required": true,
+                            "minLength": 2,
+                            "maxLength": 100,
+                            "description": "Nom de l'enseignant"
+                        },
+                        "birthday": {
+                            "type": "string",
+                            "format": "date",
+                            "required": true,
+                            "description": "Date de naissance de l'enseignant (en format ISO 8601)"
+                        }
+                    },
+                    "example": {
+                        "firstName": "John Jason",
+                        "lastName": "Doe",
+                        "birthday": "1993-03-03"
+                    }
+                }
+            }
+        }
+    },
+    "responses": {
+        "200": {
+            "description": "Le serveur a mis à jour l'enseignant avec succès",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "Le statut de la réponse"
+                            },
+                            "data": {
+                                "type": "object",
+                                "description": "object associé à la réponse",
+                                "properties":  {
+                                    "createdAt": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "description": "Date de création de l'enseignant (en format ISO 8601)"
+                                    },
+                                    "updatedAt": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "description": "Date de dernière mise à jour de l'enseignant (en format ISO 8601)"
+                                    },
+                                    "id": {
+                                        "type": "string",
+                                        "description": "Identifiant unique de l'enseignant"
+                                    },
+                                    "firstName": {
+                                        "type": "string",
+                                        "required": true,
+                                        "minLength": 2,
+                                        "maxLength": 100,
+                                        "description": "Prénom(s) de l'enseignant"
+                                    },
+                                    "lastName": {
+                                        "type": "string",
+                                        "required": true,
+                                        "minLength": 2,
+                                        "maxLength": 100,
+                                        "description": "Nom de l'enseignant"
+                                    },
+                                    "birthday": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "required": true,
+                                        "description": "Date de naissance de l'enseignant (en format ISO 8601)"
+                                    },
+                                    "level": {
+                                        "type": "string",
+                                        "required": true,
+                                        "description": "Identifiant unique du niveau d'étude de l'enseignant"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The teacher has been updated successfully",
+                        "data": {
+                            "id": "23a92584-f819-4084-9f94-259a173a59ae",
+                            "firstName": "John Jason",
+                            "lastName": "DOE",
+                            "birthday": "1993-03-03",
+                            "level": "745c4681-bec1-4601-be0a-d01ef60323c1",
+                            "createdAt": "2020-11-19 15:56:08",
+                            "updatedAt": "2020-11-19T15:59:09.075Z"
+                        }
+                    }
+                }
+            }
+        },
+        "409": {
+            "description": "Le serveur a trouvé un même enseignant pour le niveau d'étude",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "Le statut de la réponse"
+                            },
+                            "message": {
+                                "type": "string",
+                                "description": "Message spécifiant que l'enseignant existe déjà"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The teacher has been found successfully",
+                        "message": "Level with id=745c4681-bec1-4601-be0a-d01ef60323c1 has already a teacher=DOE John (1995-03-03)"
+                    }
+                }
+            }
+        },
+        "401": {
+            "description": "Le serveur n'a pas trouvé le niveau d'étude ou l'enseignant",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "Le statut de la réponse"
+                            },
+                            "data": {
+                                "type": "string",
+                                "format": "null",
+                                "description": "Valeur nulle dans le cas où le niveau d'étude n'a pas été trouvé"
+                            },
+                            "message": {
+                                "type": "string",
+                                "description": "Message spécifiant que le niveau d'étude ou l'enseignant n'a pas été trouvé"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "Level not found",
+                        "data": null,
+                        "message": "Level with id=745c4681-bec1-4601-be0a-d01ef60323c1A not found"
+                    }
+                }
+            }
+        },
+        "505": {
+            "description": "Le serveur a rencontré une erreur interne",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "Le statut de la réponse"
+                            },
+                            "error": {
+                                "type": "string",
+                                "description": "Le message d'erreur"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The database met the error",
+                        "error": "HttpServicess is not defined"
+                    }
+                }
+            }
+        }
+    }
+}

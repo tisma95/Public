@@ -1,0 +1,77 @@
+{
+    "summary": "Obtenir le nombre d'objets créés",
+    "description": "Cette API permet de récupérer le nombre d'enseignants, élèves, matières et salles de classe déjà créés.",
+    "tags": ["Général"],
+    "responses": {
+        "200": {
+            "description": "Le serveur à retourné le nombre d'objets créés avec succès",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "Le statut de la réponse"
+                            },
+                            "data": {
+                                "type": "object",
+                                "properties": {
+                                    "STUDENTS_COUNT": {
+                                        "type": "number",
+                                        "description": "Le nombre d'élèves déjà créés"
+                                    },
+                                    "TEACHERS_COUNT": {
+                                        "type": "number",
+                                        "description": "Le nombre d'enseignants déjà créés"
+                                    },
+                                    "SUBJECTS_COUNT": {
+                                        "type": "number",
+                                        "description": "Le nombre de matières déjà créées"
+                                    },
+                                    "CLASSROOMS_COUNT": {
+                                        "type": "number",
+                                        "description": "Le nombre de salles de classe déjà créées déjà créé"
+                                    }
+                                }
+                            }
+                        },
+                        "example": {
+                            "status": "The ressources have been found successfully",
+                            "data": {
+                                "STUDENTS_COUNT": 1,
+                                "TEACHERS_COUNT": 1,
+                                "SUBJECTS_COUNT": 1,
+                                "CLASSROOMS_COUNT": 1
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "505": {
+            "description": "Le serveur a rencontré une erreur interne",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "Le statut de la réponse"
+                            },
+                            "error": {
+                                "type": "string",
+                                "description": "Le message d'erreur"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The database met the error",
+                        "error": "HttpServicess is not defined"
+                    }
+                }
+            }
+        }
+    }
+}

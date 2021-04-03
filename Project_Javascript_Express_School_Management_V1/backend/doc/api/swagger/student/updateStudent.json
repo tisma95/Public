@@ -1,0 +1,214 @@
+{
+    "summary": "Update a student",
+    "description": "This API permits to update an existing student.",
+    "tags": ["Student APIs"],
+    "parameters": [
+        {
+            "name": "levelId",
+            "in": "path",
+            "description": "The level id",
+            "required": true,
+            "schema": {
+                "type": "string"
+            }
+        },
+        {
+            "name": "studentId",
+            "in": "path",
+            "description": "The student id",
+            "required": true,
+            "schema": {
+                "type": "string"
+            }
+        }
+    ],
+    "requestBody": {
+        "description": "The body which describes what student will be updated.",
+        "content": {
+            "application/json": {
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "firstName": {
+                            "type": "string",
+                            "required": true,
+                            "minLength": 2,
+                            "maxLength": 100,
+                            "description": "The first name of student"
+                        },
+                        "lastName": {
+                            "type": "string",
+                            "required": true,
+                            "minLength": 2,
+                            "maxLength": 100,
+                            "description": "The last name of student"
+                        },
+                        "birthday": {
+                            "type": "string",
+                            "format": "date",
+                            "required": true,
+                            "description": "The birthday date of student"
+                        }
+                    },
+                    "example": {
+                        "firstName": "John Jason",
+                        "lastName": "Doe",
+                        "birthday": "1995-03-03"
+                    }
+                }
+            }
+        }
+    },
+    "responses": {
+        "200": {
+            "description": "Server updated the student successfully",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "data": {
+                                "type": "object",
+                                "properties": {
+                                    "createdAt": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "description": "The creation date and time (in ISO 8601) of student"
+                                    },
+                                    "updatedAt": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "description": "The last updated date and time (in ISO 8601) of student"
+                                    },
+                                    "id": {
+                                        "type": "string",
+                                        "description": "The id of student"
+                                    },
+                                    "firstName": {
+                                        "type": "string",
+                                        "required": true,
+                                        "minLength": 2,
+                                        "maxLength": 100,
+                                        "description": "The first name of student"
+                                    },
+                                    "lastName": {
+                                        "type": "string",
+                                        "required": true,
+                                        "minLength": 2,
+                                        "maxLength": 100,
+                                        "description": "The last name of student"
+                                    },
+                                    "birthday": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "required": true,
+                                        "description": "The birthday date of student (in ISO 8601)"
+                                    },
+                                    "level": {
+                                        "type": "string",
+                                        "required": true,
+                                        "description": "The id of student's level"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The student has been updated successfully",
+                        "data": {
+                            "id": "5f808450-7eea-4533-8316-3673675b6860",
+                            "firstName": "John Jason",
+                            "lastName": "DOE",
+                            "birthday": "1995-03-03",
+                            "level": "745c4681-bec1-4601-be0a-d01ef60323c1",
+                            "createdAt": "2020-11-19 15:25:00",
+                            "updatedAt": "2020-11-19T15:37:45.667Z"
+                        }
+                    }
+                }
+            }
+        },
+        "409": {
+            "description": "Server found the same student in level",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "message": {
+                                "type": "string",
+                                "description": "The message which describes that student already exist"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The student has been found successfully",
+                        "message": "Level with id=745c4681-bec1-4601-be0a-d01ef60323c1 has already a student=DOE John (1995-03-03)"
+                    }
+                }
+            }
+        },
+        "401": {
+            "description": "Server not found the level or body has not correct or student not associated to level",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "data": {
+                                "type": "string",
+                                "format": "null",
+                                "description": "Null value data (only when level not found)"
+                            },
+                            "message": {
+                                "type": "string",
+                                "description": "The message which describes that level not found"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "Level not found",
+                        "data": null,
+                        "message": "Level with id=745c4681-bec1-4601-be0a-d01ef60323c1A not found"
+                    }
+                }
+            }
+        },
+        "505": {
+            "description": "Server met an internal error",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "error": {
+                                "type": "string",
+                                "description": "The error message"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The database met the error",
+                        "error": "HttpServicess is not defined"
+                    }
+                }
+            }
+        }
+    }
+}

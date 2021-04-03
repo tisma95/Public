@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The creation date and time (in ISO 8601) of classroom"
+        },
+        "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The last updated date and time (in ISO 8601) of classroom"
+        },
+        "id": {
+            "type": "string",
+            "description": "The id of classroom"
+        },
+        "name": {
+            "type": "string",
+            "required": true,
+            "minLength": 2,
+            "maxLength": 45,
+            "description": "The name of classroom"
+        },
+        "capacity": {
+            "type": "number",
+            "required": true,
+            "minimun": 2,
+            "maximum": 200,
+            "description": "The max capacity of classroom"
+        },
+        "level": {
+            "type": "string",
+            "required": true,
+            "description": "The id of classroom's level"
+        }
+    }
+}

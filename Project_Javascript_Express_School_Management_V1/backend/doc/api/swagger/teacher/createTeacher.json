@@ -1,0 +1,205 @@
+{
+    "summary": "Create new teacher",
+    "description": "This API permits to create in database new teacher of specific level.",
+    "tags": ["Teacher APIs"],
+    "parameters": [
+        {
+            "name": "levelId",
+            "in": "path",
+            "description": "The level id",
+            "required": true,
+            "schema": {
+                "type": "string"
+            }
+        }
+    ],
+    "requestBody": {
+        "description": "The body which describes what teacher will be created.",
+        "content": {
+            "application/json": {
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                        "firstName": {
+                            "type": "string",
+                            "required": true,
+                            "minLength": 2,
+                            "maxLength": 100,
+                            "description": "The first name of teacher"
+                        },
+                        "lastName": {
+                            "type": "string",
+                            "required": true,
+                            "minLength": 2,
+                            "maxLength": 100,
+                            "description": "The last name of teacher"
+                        },
+                        "birthday": {
+                            "type": "string",
+                            "format": "date",
+                            "required": true,
+                            "description": "The birthday date of teacher"
+                        }
+                    },
+                    "example": {
+                        "firstName": "Jason",
+                        "lastName": "Doe",
+                        "birthday": "1995-03-03"
+                    }
+                }
+            }
+        }
+    },
+    "responses": {
+        "201": {
+            "description": "Server created the teacher successfully",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "data": {
+                                "type": "object",
+                                "properties": {
+                                    "createdAt": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "description": "The creation date and time (in ISO 8601) of teacher"
+                                    },
+                                    "updatedAt": {
+                                        "type": "string",
+                                        "format": "date-time",
+                                        "description": "The last updated date and time (in ISO 8601) of teacher"
+                                    },
+                                    "id": {
+                                        "type": "string",
+                                        "description": "The id of teacher"
+                                    },
+                                    "firstName": {
+                                        "type": "string",
+                                        "required": true,
+                                        "minLength": 2,
+                                        "maxLength": 100,
+                                        "description": "The first name of teacher"
+                                    },
+                                    "lastName": {
+                                        "type": "string",
+                                        "required": true,
+                                        "minLength": 2,
+                                        "maxLength": 100,
+                                        "description": "The last name of teacher"
+                                    },
+                                    "birthday": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "required": true,
+                                        "description": "The birthday date of teacher (in ISO 8601)"
+                                    },
+                                    "level": {
+                                        "type": "string",
+                                        "required": true,
+                                        "description": "The id of teacher's level"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The teacher has been created successfully",
+                        "data": {
+                            "id": "0dc13177-dd90-497e-a5f9-4a22c487ccbd",
+                            "lastName": "DOE",
+                            "birthday": "1995-03-03",
+                            "level": "745c4681-bec1-4601-be0a-d01ef60323c1",
+                            "firstName": "Jason",
+                            "updatedAt": "2020-11-19T15:52:44.529Z",
+                            "createdAt": "2020-11-19T15:52:44.529Z"
+                        }
+                    }
+                }
+            }
+        },
+        "409": {
+            "description": "Server found the same teacher in level",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "message": {
+                                "type": "string",
+                                "description": "The message which describes that teacher already exist"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The teacher has been found successfully",
+                        "message": "Level with id=745c4681-bec1-4601-be0a-d01ef60323c1 has already a teacher=DOE Jason (1995-03-03)"
+                    }
+                }
+            }
+        },
+        "401": {
+            "description": "Server not found the level or teacher's body has not correct",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "data": {
+                                "type": "string",
+                                "format": "null",
+                                "description": "Null value data (only when level not found)"
+                            },
+                            "message": {
+                                "type": "string",
+                                "description": "The message which describes that level not found"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "Level not found",
+                        "data": null,
+                        "message": "Level with id=745c4681-bec1-4601-be0a-d01ef60323c1A not found"
+                    }
+                }
+            }
+        },
+        "505": {
+            "description": "Server met an internal error",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "error": {
+                                "type": "string",
+                                "description": "The error message"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The database met the error",
+                        "error": "HttpServicess is not defined"
+                    }
+                }
+            }
+        }
+    } 
+}

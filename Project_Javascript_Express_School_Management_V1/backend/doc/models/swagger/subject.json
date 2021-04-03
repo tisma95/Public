@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+        "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The creation date and time (in ISO 8601) of subject"
+        },
+        "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The last updated date and time (in ISO 8601) of subject"
+        },
+        "id": {
+            "type": "string",
+            "description": "The id of subject"
+        },
+        "name": {
+            "type": "string",
+            "required": true,
+            "minLength": 2,
+            "maxLength": 45,
+            "description": "The name of subject"
+        },
+        "level": {
+            "type": "string",
+            "required": true,
+            "description": "The id of subject's level"
+        }
+    }
+}

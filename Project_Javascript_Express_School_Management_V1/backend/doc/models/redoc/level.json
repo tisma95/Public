@@ -1,0 +1,24 @@
+{
+    "type": "object",
+    "properties": {
+        "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date de création du niveau d'étude (en format ISO 8601)"
+        },
+        "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date de dernière mise à jour du niveau d'étude (en format ISO 8601)"
+        },
+        "id": {
+            "type": "string",
+            "description": "Identifiant unique du niveau d'étude"
+        },
+        "name": {
+            "type": "string",
+            "required": true,
+            "description": "Nom du niveau d'étude. Il doit être unique"
+        }
+    }
+}

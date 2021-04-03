@@ -1,0 +1,705 @@
+{
+	"info": {
+		"_postman_id": "11a187b9-1bc6-4fc3-8664-55a6529fe4ed",
+		"name": "School Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Level APIs",
+			"item": [
+				{
+					"name": "Get All levels",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/levels",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"levels"
+							]
+						},
+						"description": "This API permits to get all default levels which stored in database."
+					},
+					"response": []
+				}
+			],
+			"description": "This folder contains the API of Level like get all default levels.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ebf31835-2c5c-4a1f-8fe4-9d6cb7a15a11",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "55ca753a-0b8f-435d-ab9a-1726b1f55571",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Utility APIs",
+			"item": [
+				{
+					"name": "Get Objects Count",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/objects/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"objects",
+								"count"
+							]
+						},
+						"description": "This API permits to get the count of student, subject, teacher and classroom which are created."
+					},
+					"response": []
+				}
+			],
+			"description": "This folder contains the API Test of Utility like the count of different objects.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5d95dc17-4674-4101-a49a-47312da53368",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "0b89a8a8-a21c-4b25-8386-b2226b08a04b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Subject APIs",
+			"item": [
+				{
+					"name": "Create a subject",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Reading\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/levels/7ad01f2c-a4c5-4f20-9b6d-b5810a9e206d/subject",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"levels",
+								"7ad01f2c-a4c5-4f20-9b6d-b5810a9e206d",
+								"subject"
+							]
+						},
+						"description": "This API permits to create new subject in a level.\r\n\r\nA subject must have :\r\n+ **name** : the name of subject which is mandatory\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/subject"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all subjects of level",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/levels/7ad01f2c-a4c5-4f20-9b6d-b5810a9e206d/subjects",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"levels",
+								"7ad01f2c-a4c5-4f20-9b6d-b5810a9e206d",
+								"subjects"
+							]
+						},
+						"description": "This API permits to get all subjects in a level.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/subjects"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a subject by its id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/levels/7ad01f2c-a4c5-4f20-9b6d-b5810a9e206d/subjects/8200d219-250f-4734-8cd1-117bb8de410d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"levels",
+								"7ad01f2c-a4c5-4f20-9b6d-b5810a9e206d",
+								"subjects",
+								"8200d219-250f-4734-8cd1-117bb8de410d"
+							]
+						},
+						"description": "This API permits to fetch a subject by its id.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/subjects/{{the_id_of_subject}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a subject by its id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Writing\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/levels/7ad01f2c-a4c5-4f20-9b6d-b5810a9e206d/subjects/8200d219-250f-4734-8cd1-117bb8de410d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"levels",
+								"7ad01f2c-a4c5-4f20-9b6d-b5810a9e206d",
+								"subjects",
+								"8200d219-250f-4734-8cd1-117bb8de410d"
+							]
+						},
+						"description": "This API permits to update a subject in a level by its id.\r\n\r\nA subject must have :\r\n+ **name** : the name of subject which is mandatory\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/subjects/{{the_id_of_subject}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a subject by its id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/levels/7ad01f2c-a4c5-4f20-9b6d-b5810a9e206d/subjects/8200d219-250f-4734-8cd1-117bb8de410d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"levels",
+								"7ad01f2c-a4c5-4f20-9b6d-b5810a9e206d",
+								"subjects",
+								"8200d219-250f-4734-8cd1-117bb8de410d"
+							]
+						},
+						"description": "This API permits to delete a subject by its id.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/subjects/{{the_id_of_subject}}"
+					},
+					"response": []
+				}
+			],
+			"description": "This folder contains the APIs of Subject like :\r\n\r\n+ API which permits to create a subject in level\r\n+ API which permits to get all subjects for level\r\n+ API which permits to get a subject of level by its id\r\n+ API which permits to update a subject of level by its id\r\n+ API which permits to delete a subject of level by its id",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Classroom APIs",
+			"item": [
+				{
+					"name": "Create a classroom",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Master 1\",\r\n    \"capacity\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/levels/d398c614-760a-44a8-bca6-4f2ae360351d/classroom",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"levels",
+								"d398c614-760a-44a8-bca6-4f2ae360351d",
+								"classroom"
+							]
+						},
+						"description": "This API permits to create new classroom in a level.\r\n\r\nA classroom must have :\r\n+ **name** : the name of classroom which is mandatory.\r\n+ **capacity** : the capacity of students what the classroom can store. This field is mandatory.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/classroom"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all classrooms of level",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/levels/d398c614-760a-44a8-bca6-4f2ae360351d/classrooms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"levels",
+								"d398c614-760a-44a8-bca6-4f2ae360351d",
+								"classrooms"
+							]
+						},
+						"description": "This API permits to get all classrooms in a level.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/classrooms"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a classroom by its id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/levels/d398c614-760a-44a8-bca6-4f2ae360351d/classrooms/f1c6e034-0a95-4cd0-a40f-94c78b27dcca",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"levels",
+								"d398c614-760a-44a8-bca6-4f2ae360351d",
+								"classrooms",
+								"f1c6e034-0a95-4cd0-a40f-94c78b27dcca"
+							]
+						},
+						"description": "This API permits to fetch a classroom by its id.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/classrooms/{{the_id_of_classroom}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a classroom by its id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Master 1\",\r\n    \"capacity\": 50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/levels/d398c614-760a-44a8-bca6-4f2ae360351d/classrooms/f1c6e034-0a95-4cd0-a40f-94c78b27dcca",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"levels",
+								"d398c614-760a-44a8-bca6-4f2ae360351d",
+								"classrooms",
+								"f1c6e034-0a95-4cd0-a40f-94c78b27dcca"
+							]
+						},
+						"description": "This API permits to update a classroom in a level by its id.\r\n\r\nA classroom must have :\r\n+ **name** : the name of classroom which is mandatory.\r\n+ **capacity** : the capacity of students what the classroom can store. This field is mandatory.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/classrooms/{{the_id_of_classroom}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a classroom by its id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/levels/d398c614-760a-44a8-bca6-4f2ae360351d/classrooms/f1c6e034-0a95-4cd0-a40f-94c78b27dcca",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"levels",
+								"d398c614-760a-44a8-bca6-4f2ae360351d",
+								"classrooms",
+								"f1c6e034-0a95-4cd0-a40f-94c78b27dcca"
+							]
+						},
+						"description": "This API permits to delete a classroom by its id.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/classrooms/{{the_id_of_classroom}}"
+					},
+					"response": []
+				}
+			],
+			"description": "This folder contains the APIs of Classroom like :\r\n\r\n+ API which permits to create a classroom in level\r\n+ API which permits to get all classrooms for level\r\n+ API which permits to get a classroom of level by its id\r\n+ API which permits to update a classroom of level by its id\r\n+ API which permits to delete a classroom of level by its id\r\n",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c491e2e1-69d8-49ff-aee3-7f9ebf4f82b3",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "acfef905-5514-4ad3-a1c6-21f64eff2b64",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Student APIs",
+			"item": [
+				{
+					"name": "Create a student",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Doe\",\r\n    \"birthday\": \"1995-03-03\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/levels/5b27ea44-ff41-4edb-9d90-a777333b83d1/student",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"levels",
+								"5b27ea44-ff41-4edb-9d90-a777333b83d1",
+								"student"
+							]
+						},
+						"description": "This API permits to create new student in a level.\r\n\r\nA student must have :\r\n+ **firstName** : the first name of student it is mandatory.\r\n+ **lastName** : the last name of student it is mandatory.\r\n+ **birthday** : the birthday date of student it is mandatory.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/student"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all students of level",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/levels/5b27ea44-ff41-4edb-9d90-a777333b83d1/students",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"levels",
+								"5b27ea44-ff41-4edb-9d90-a777333b83d1",
+								"students"
+							]
+						},
+						"description": "This API permits to get all students in a level.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/students"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a student by its id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/levels/5b27ea44-ff41-4edb-9d90-a777333b83d1/students/851c7bfd-8f2b-403f-8c2d-fc2d09556f52",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"levels",
+								"5b27ea44-ff41-4edb-9d90-a777333b83d1",
+								"students",
+								"851c7bfd-8f2b-403f-8c2d-fc2d09556f52"
+							]
+						},
+						"description": "This API permits to fetch a student by its id.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/students/{{the_id_of_student}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a student by its id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"John Jason\",\r\n    \"lastName\": \"Doe\",\r\n    \"birthday\": \"1995-03-03\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/levels/5b27ea44-ff41-4edb-9d90-a777333b83d1/students/851c7bfd-8f2b-403f-8c2d-fc2d09556f52",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"levels",
+								"5b27ea44-ff41-4edb-9d90-a777333b83d1",
+								"students",
+								"851c7bfd-8f2b-403f-8c2d-fc2d09556f52"
+							]
+						},
+						"description": "This API permits to update a student in a level by its id.\r\n\r\nA student must have :\r\n+ **firstName** : the first name of student it is mandatory.\r\n+ **lastName** : the last name of student it is mandatory.\r\n+ **birthday** : the birthday date of student it is mandatory.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/students/{{the_id_of_student}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a student by its id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/levels/5b27ea44-ff41-4edb-9d90-a777333b83d1/students/851c7bfd-8f2b-403f-8c2d-fc2d09556f52",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"levels",
+								"5b27ea44-ff41-4edb-9d90-a777333b83d1",
+								"students",
+								"851c7bfd-8f2b-403f-8c2d-fc2d09556f52"
+							]
+						},
+						"description": "This API permits to delete a student by its id.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/students/{{the_id_of_student}}"
+					},
+					"response": []
+				}
+			],
+			"description": "This folder contains the APIs of Student like :\r\n\r\n+ API which permits to create a student in level\r\n+ API which permits to get all students for level\r\n+ API which permits to get a student of level by its id\r\n+ API which permits to update a student of level by its id\r\n+ API which permits to delete a student of level by its id\r\n",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e13cac09-2056-4235-b264-34ca294d3655",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "fc3f1497-2280-4a08-8bc0-85706cf8c147",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Teacher APIs",
+			"item": [
+				{
+					"name": "Create a teacher",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Jason\",\r\n    \"lastName\": \"Doe\",\r\n    \"birthday\": \"1995-03-03\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/levels/5da93576-bae6-4350-8045-210f0196dd0a/teacher",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"levels",
+								"5da93576-bae6-4350-8045-210f0196dd0a",
+								"teacher"
+							]
+						},
+						"description": "This API permits to create new teacher in a level.\r\n\r\nA teacher must has :\r\n+ **firstName** : the first name of teacher it is mandatory.\r\n+ **lastName** : the last name of teacher it is mandatory.\r\n+ **birthday** : the birthday date of teacher it is mandatory.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/teacher"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all teachers of level",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/levels/5da93576-bae6-4350-8045-210f0196dd0a/teachers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"levels",
+								"5da93576-bae6-4350-8045-210f0196dd0a",
+								"teachers"
+							]
+						},
+						"description": "This API permits to get all teachers in a level.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/teachers"
+					},
+					"response": []
+				},
+				{
+					"name": "Get a teacher by its id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/levels/5da93576-bae6-4350-8045-210f0196dd0a/teachers/b6586676-3ed7-4581-9d4f-80443ef8e400",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"levels",
+								"5da93576-bae6-4350-8045-210f0196dd0a",
+								"teachers",
+								"b6586676-3ed7-4581-9d4f-80443ef8e400"
+							]
+						},
+						"description": "This API permits to fetch a teacher by its id.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/teachers/{{the_id_of_teacher}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a teacher by its id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"John Jason\",\r\n    \"lastName\": \"Doe\",\r\n    \"birthday\": \"1995-03-03\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/levels/5da93576-bae6-4350-8045-210f0196dd0a/teachers/b6586676-3ed7-4581-9d4f-80443ef8e400",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"levels",
+								"5da93576-bae6-4350-8045-210f0196dd0a",
+								"teachers",
+								"b6586676-3ed7-4581-9d4f-80443ef8e400"
+							]
+						},
+						"description": "This API permits to update a teacher in a level by its id.\r\n\r\nA teacher must has :\r\n+ **firstName** : the first name of teacher it is mandatory.\r\n+ **lastName** : the last name of teacher it is mandatory.\r\n+ **birthday** : the birthday date of teacher it is mandatory.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/teachers/{{the_id_of_teacher}}"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a teacher by its id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/levels/5da93576-bae6-4350-8045-210f0196dd0a/teachers/b6586676-3ed7-4581-9d4f-80443ef8e400",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"levels",
+								"5da93576-bae6-4350-8045-210f0196dd0a",
+								"teachers",
+								"b6586676-3ed7-4581-9d4f-80443ef8e400"
+							]
+						},
+						"description": "This API permits to delete a teacher by its id.\r\n\r\nThe url of request is : /levels/{{the_id_of_level}}/teachers/{{the_id_of_teacher}}"
+					},
+					"response": []
+				}
+			],
+			"description": "This folder contains the APIs of Teacher like :\r\n\r\n+ API which permits to create a teacher in level\r\n+ API which permits to get all teachers for level\r\n+ API which permits to get a teacher of level by its id\r\n+ API which permits to update a teacher of level by its id\r\n+ API which permits to delete a teacher of level by its id\r\n",
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

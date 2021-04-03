@@ -1,0 +1,99 @@
+{
+    "summary": "Suppression d'un élève",
+    "description": "Cette API permet de supprimer dans la base de données un élève pour un niveau d'étude donné.",
+    "tags": ["Elève"],
+    "parameters": [
+        {
+            "name": "levelId",
+            "in": "path",
+            "description": "Identifiant unique du niveau d'étude",
+            "required": true,
+            "schema": {
+                "type": "string"
+            }
+        },
+        {
+            "name": "studentId",
+            "in": "path",
+            "description": "Identifiant unique de l'élève",
+            "required": true,
+            "schema": {
+                "type": "string"
+            }
+        }
+    ],
+    "responses": {
+        "200": {
+            "description": "Le serveur a supprimé l'élève avec succès",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "Le statut de la réponse"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The student has been deleted successfully"
+                    }
+                }
+            }
+        },
+        "401": {
+            "description": "Le serveur n'a pas trouvé le niveau d'étude spécifié ou l'élève n'appartient pas au niveau spécifié",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "Le statut de la réponse"
+                            },
+                            "data": {
+                                "type": "string",
+                                "format": "null",
+                                "description": "Valeur nulle dans le cas où le niveau d'étude n'a pas été trouvé"
+                            },
+                            "message": {
+                                "type": "string",
+                                "description": "Message qui spécifiant que le niveau d'étude n'a pas été trouvé ou l'élève n'appartient pas au niveau spécifié"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "Student not found",
+                        "message": "Student with id=8ffb4b22-3bc4-43f5-adfa-1ad56e718b33 not found"
+                    }
+                }
+            }
+        },
+        "505": {
+            "description": "Le serveur a rencontré une erreur interne",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "Le statut de la réponse"
+                            },
+                            "error": {
+                                "type": "string",
+                                "description": "Le message d'erreur"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The database met the error",
+                        "error": "HttpServicess is not defined"
+                    }
+                }
+            }
+        }
+    }
+}

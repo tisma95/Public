@@ -1,0 +1,129 @@
+{
+    "summary": "Get all default levels",
+    "description": "This API permits to fetch all default levels which stored in database.",
+    "tags": ["Level API"],
+    "responses": {
+        "200": {
+            "description": "Server found levels successfully",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "data": {
+                                "type": "array",
+                                "description": "The array of default levels",
+                                "items": {
+                                    "type": "object",
+                                    "properties": {
+                                        "createdAt": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "description": "The creation date and time (in ISO 8601) of level"
+                                        },
+                                        "updatedAt": {
+                                            "type": "string",
+                                            "format": "date-time",
+                                            "description": "The last updated date and time (in ISO 8601) of level"
+                                        },
+                                        "id": {
+                                            "type": "string",
+                                            "description": "The id of level"
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "required": true,
+                                            "description": "The name of level. It must be unique."
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        "example": {
+                            "status": "The levels have found successfully",
+                            "data": [
+                                {
+                                    "id": "745c4681-bec1-4601-be0a-d01ef60323c1",
+                                    "name": "PRIMARY",
+                                    "createdAt": "2020-11-14 10:00:25",
+                                    "updatedAt": "2020-11-14 10:00:25"
+                                },
+                                {
+                                    "id": "42973048-08d1-42bc-ae70-618e78d523f5",
+                                    "name": "COLLEGE",
+                                    "createdAt": "2020-11-14 10:00:25",
+                                    "updatedAt": "2020-11-14 10:00:25"
+                                },
+                                {
+                                    "id": "470e2be3-0d1a-4435-ac06-db50566c89ce",
+                                    "name": "HIGH_SCHOOL",
+                                    "createdAt": "2020-11-14 10:00:25",
+                                    "updatedAt": "2020-11-14 10:00:25"
+                                },
+                                {
+                                    "id": "e7233e9a-1ed9-4c21-996a-3fccf1a9ccc8",
+                                    "name": "UNIVERSITY",
+                                    "createdAt": "2020-11-14 10:00:25",
+                                    "updatedAt": "2020-11-14 10:00:25"
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "404": {
+            "description": "Server not found a level",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "data": {
+                                "type": "string",
+                                "format": "null",
+                                "description": "Null value data"
+                            }
+                        },
+                        "example": {
+                            "status": "Levels not found",
+                            "data": null
+                        }
+                    }
+                }
+            }
+        },
+        "505": {
+            "description": "Server met an internal error",
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string",
+                                "description": "The status message of response"
+                            },
+                            "error": {
+                                "type": "string",
+                                "description": "The error message"
+                            }
+                        }
+                    },
+                    "example": {
+                        "status": "The database met the error",
+                        "error": "HttpServicess is not defined"
+                    }
+                }
+            }
+        }
+    }
+}

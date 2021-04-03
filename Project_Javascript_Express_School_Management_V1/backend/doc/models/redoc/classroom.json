@@ -1,0 +1,38 @@
+{
+    "type": "object",
+    "properties": {
+        "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date de création de la salle classe (en format ISO 8601)"
+        },
+        "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Date de dernière mise à jour de la salle classe (en format ISO 8601)"
+        },
+        "id": {
+            "type": "string",
+            "description": "Identifiant unique de la salle classe"
+        },
+        "name": {
+            "type": "string",
+            "required": true,
+            "minLength": 2,
+            "maxLength": 45,
+            "description": "Nom de la salle de classe"
+        },
+        "capacity": {
+            "type": "number",
+            "required": true,
+            "minimun": 2,
+            "maximum": 200,
+            "description": "Nombre maximum d'élèves"
+        },
+        "level": {
+            "type": "string",
+            "required": true,
+            "description": "Identifiant unique du niveau d'étude de la classe"
+        }
+    }
+}
