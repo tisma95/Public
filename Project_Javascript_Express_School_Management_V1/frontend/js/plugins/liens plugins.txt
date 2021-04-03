@@ -1,0 +1,10 @@
+Alert : https://www.jqueryscript.net/other/Create-Simple-Alert-Messages-with-jQuery-Bootstrap-alert-js.html
+
+Axios : https://github.com/axios/axios
+
+Bootstrap-Message : https://www.jqueryscript.net/other/Minimal-Notification-Plugin-With-jQuery-and-Bootstrap-Bootstrap-Msg.html
+
+Spinner Demo : https://www.jqueryscript.net/demo/jQuery-Plugin-For-Creating-Loading-Overlay-with-CSS3-Animations-waitMe/
+
+Spinner Doc : https://www.jqueryscript.net/loading/jQuery-Plugin-For-Creating-Loading-Overlay-with-CSS3-Animations-waitMe.html
+              http://vadimsva.github.io/waitMe/

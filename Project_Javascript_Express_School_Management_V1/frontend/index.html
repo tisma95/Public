@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="img/logo.svg" />
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-reboot.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-msg.css" />
+    <link rel="stylesheet" href="css/waitMe.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>School Management V1</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <img src="img/menu_logo.svg" alt="Menu" />
+        <a class="navbar-brand" href="#">Management</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="index.html">Accueil</a>
+                <a class="nav-item nav-link" href="html/subjects.html">Matières</a>
+                <a class="nav-item nav-link" href="html/classrooms.html">Classes</a>
+                <a class="nav-item nav-link" href="html/students.html">Etudiants</a>
+                <a class="nav-item nav-link" href="html/teachers.html">Enseignants</a>
+                <a class="nav-item nav-link" href="./html/apidoc/index.html">API Doc</a>
+            </div>
+            <span class="text-danger">(Attention ce site est une version de test pas un site en production)</span>
+        </div>
+    </nav>
+    <div id="pageContainer" class="container">
+        <div class="card" style="margin-top: 10px; margin-bottom: 10px">
+            <div class="card-header card-title h1 text-info text-center"><img src="img/subject_logo.svg"
+                    alt="Gestion" /> Matières</div>
+            <div class="card-body text-center">
+                <h5 id="txtSubjectNumber" class="display-3 text-center text-primary card-text">0</h5>
+                <p class="card-text text-muted">Vous pouvez effectuer des actions rapides sur les matières en cliquant
+                    sur l'un des boutons ci-dessous.</p>
+                <a id="indexPageBtAddSubject" href="#" class="btn btn-success">Ajouter</a>
+                <a id="indexPageBtResearchSubject" href="#" class="btn btn-primary">Rechercher</a>
+                <a id="indexPageBtModifySubject" href="#" class="btn btn-warning">Modifier</a>
+                <a id="indexPageBtDeleteSubject" href="#" class="btn btn-danger">Supprimer</a>
+                <a id="indexPageBtDisplaySubject" href="html/subjects.html" class="btn btn-info">Tout Afficher</a>
+            </div>
+            <div class="card-footer text-muted">
+                Gestionnaire des Matières
+            </div>
+        </div>
+        <div class="card" style="margin-top: 10px; margin-bottom: 10px">
+            <div class="card-header card-title h1 text-info text-center"><img src="img/classroom_logo.svg"
+                    alt="Gestion" /> Classes</div>
+            <div class="card-body text-center">
+                <h5 id="txtClassroomNumber" class="display-3 text-center text-primary card-text">0</h5>
+                <p class="card-text text-muted">Vous pouvez effectuer des actions rapides sur les classes en cliquant
+                    sur l'un des boutons ci-dessous.</p>
+                <a id="indexPageBtAddClassroom" href="#" class="btn btn-success">Ajouter</a>
+                <a id="indexPageBtResearchClassroom" href="#" class="btn btn-primary">Rechercher</a>
+                <a id="indexPageBtModifyClassroom" href="#" class="btn btn-warning">Modifier</a>
+                <a id="indexPageBtDeleteClassroom" href="#" class="btn btn-danger">Supprimer</a>
+                <a id="indexPageBtDisplayClassroom" href="html/classrooms.html" class="btn btn-info">Tout Afficher</a>
+            </div>
+            <div class="card-footer text-muted">
+                Gestionnaire des Classes
+            </div>
+        </div>
+        <div class="card" style="margin-top: 10px; margin-bottom: 10px">
+            <div class="card-header card-title h1 text-info text-center"><img src="img/student_logo.svg "
+                    alt="Gestion" /> Elèves</div>
+            <div class="card-body text-center">
+                <h5 id="txtStudentNumber" class="display-3 text-center text-primary card-text">0</h5>
+                <p class="card-text text-muted">Vous pouvez effectuer des actions rapides sur les élèves en cliquant sur l'un des boutons ci-dessous.</p>
+                <a id="indexPageBtAddStudent" href="#" class="btn btn-success">Ajouter</a>
+                <a id="indexPageBtResearchStudent" href="#" class="btn btn-primary">Rechercher</a>
+                <a id="indexPageBtModifyStudent" href="#" class="btn btn-warning">Modifier</a>
+                <a id="indexPageBtDeleteStudent" href="#" class="btn btn-danger">Supprimer</a>
+                <a id="indexPageBtDisplayStudent" href="html/students.html" class="btn btn-info">Tout Afficher</a>
+            </div>
+            <div class="card-footer text-muted">
+                Gestionnaire des Elèves
+            </div>
+        </div>
+        <div class="card" style="margin-top: 10px; margin-bottom: 10px">
+            <div class="card-header card-title h1 text-info text-center"><img src="img/teacher_logo.svg "
+                    alt="Gestion" /> Enseignants</div>
+            <div class="card-body text-center">
+                <h5 id="txtTeacherNumber" class="display-3 text-center text-primary card-text">0</h5>
+                <p class="card-text text-muted">Vous pouvez effectuer des actions rapides sur les enseignants en
+                    cliquant sur l'un des boutons ci-dessous.</p>
+                <a id="indexPageBtAddTeacher" href="#" class="btn btn-success">Ajouter</a>
+                <a id="indexPageBtResearchTeacher" href="#" class="btn btn-primary">Rechercher</a>
+                <a id="indexPageBtModifyTeacher" href="#" class="btn btn-warning">Modifier</a>
+                <a id="indexPageBtDeleteTeacher" href="#" class="btn btn-danger">Supprimer</a>
+                <a id="indexPageBtDisplayTeacher" href="html/teachers.html" class="btn btn-info">Tout Afficher</a>
+            </div>
+            <div class="card-footer text-muted">
+                Gestionnaire des Enseignants
+            </div>
+        </div>
+        <div id="modalContainer"></div>
+        <!-- Begin: Include js file -->
+        <script src="js/index.js" type="module" async></script>
+        <!-- End: Include js file -->
+    </div>
+    <!-- Begin: Include plugins -->
+    <script src="js/plugins/jquery.min.js"></script>
+    <script src="js/plugins/bootstrap.bundle.js"></script>
+    <script src="js/plugins/bootstrap.js"></script>
+    <script src="js/plugins/axios.js"></script>
+    <script src="js/plugins/bootstrap-msg.js"></script>
+    <script src="js/plugins/waitMe.min.js"></script>
+    <!-- End: Include plugins -->
+</body>
+
+</html>
