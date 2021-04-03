@@ -1,0 +1,74 @@
+<div class="modal fade" id="modalAddTeacher" tabindex="-1" role="dialog" data-backdrop="static"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Nouvel enseignant</h5>
+            </div>
+            <div class="modal-body">
+                <form id="addTeacherForm">
+                    <div class="form-group row">
+                        <label for="addTeacherTxtTeacherLastName" class="col-sm-2 col-form-label">Nom</label>
+                        <div class="col-sm-10">
+                            <input id="addTeacherTxtTeacherLastName" type="text" class="form-control is-invalid" placeholder="Entrer le nom de l'enseignant" required />
+                            <small class="form-text text-muted">
+                                Le nom doit être constitué d'au moins deux caractères !
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="addTeacherTxtTeacherFirstName" class="col-sm-2 col-form-label">Prénom(s)</label>
+                        <div class="col-sm-10">
+                            <input id="addTeacherTxtTeacherFirstName" type="text" class="form-control is-invalid" placeholder="Entrer le(s) prénom(s) de l'enseignant" required />
+                            <small class="form-text text-muted">
+                                Le(s) prénom(s) doit(doivent) être constitué(s) d'au moins deux caractères !
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="addTeacherTxtTeacherBirthday" class="col-sm-2 col-form-label">Naissance</label>
+                        <div class="col-sm-10">
+                            <input id="addTeacherTxtTeacherBirthday" type="date" class="form-control is-invalid" placeholder="Entrer la date de naissance de l'enseignant" required />
+                            <small class="form-text text-muted">
+                                L'enseignant doit avoir au moins 18 ans !
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="rdLevel" class="col-sm-2 col-form-label">Niveau</label>
+                        <div class="col-sm-10">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="addTeacherRdChoicePrimary" name="levelChoice"
+                                    class="custom-control-input" />
+                                <label class="custom-control-label" for="addTeacherRdChoicePrimary">Primaire</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline col-sm-2">
+                                <input type="radio" id="addTeacherRdChoiceCollege" name="levelChoice"
+                                    class="custom-control-input" />
+                                <label class="custom-control-label" for="addTeacherRdChoiceCollege">Collège</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline col-sm-2">
+                                <input type="radio" id="addTeacherRdChoiceHighSchool" name="levelChoice"
+                                    class="custom-control-input" />
+                                <label class="custom-control-label" for="addTeacherRdChoiceHighSchool">Lycée</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline col-sm-2">
+                                <input type="radio" id="addTeacherRdChoiceUniversity" name="levelChoice"
+                                    class="custom-control-input" />
+                                <label class="custom-control-label"
+                                    for="addTeacherRdChoiceUniversity">Université</label>
+                            </div>
+                            <small class="form-text text-muted">
+                                Vous devez selectionner au moins un niveau !
+                            </small>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <button id="addTeacherBtAdd" type="submit" class="btn btn-primary" disabled>Ajouter</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

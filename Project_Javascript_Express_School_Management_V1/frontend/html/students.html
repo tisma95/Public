@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="../img/logo.svg" />
+    <link rel="stylesheet" href="../css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="../css/bootstrap-reboot.min.css" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/bootstrap-msg.css" />
+    <link rel="stylesheet" href="../css/waitMe.min.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>School Management V1</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <img src="../img/menu_logo.svg" alt="Menu" />
+        <a class="navbar-brand" href="#">Management</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="../index.html">Accueil</a>
+                <a class="nav-item nav-link" href="./subjects.html">Matières</a>
+                <a class="nav-item nav-link" href="./classrooms.html">Classes</a>
+                <a class="nav-item nav-link active" href="./students.html">Etudiants</a>
+                <a class="nav-item nav-link" href="./teachers.html">Enseignants</a>
+                <a class="nav-item nav-link" href="./apidoc/index.html">API Doc</a>
+            </div>
+            <span class="text-danger">(Attention ce site est une version de test pas un site en production)</span>
+        </div>
+    </nav>
+    <div id="pageContainer" class="container">
+        <div class="row align-items-center bg-info" align="center" style="margin-top: 20px;">
+            <div class="form-check form-check-inline col-2 offset-md-1">
+                <input class="form-check-input" type="radio" name="studentsLevelRadio" id="studentsRdAllLevel" value="ALL" checked>
+                <label class="form-check-label font-weight-bold" for="studentsRdAllLevel">
+                    Tous les niveaux
+                </label>
+            </div>
+            <div class="form-check form-check-inline col-2">
+                <input class="form-check-input" type="radio" name="studentsLevelRadio" id="studentsRdPrimaryLevel" value="PRIMARY">
+                <label class="form-check-label font-weight-bold" for="studentsRdPrimaryLevel">
+                    Primaire
+                </label>
+            </div>
+            <div class="form-check form-check-inline col-2">
+                <input class="form-check-input" type="radio" name="studentsLevelRadio" id="studentsRdCollegeLevel" value="COLLEGE">
+                <label class="form-check-label font-weight-bold" for="studentsRdCollegeLevel">
+                    Collège
+                </label>
+            </div>
+            <div class="form-check form-check-inline col-2">
+                <input class="form-check-input" type="radio" name="studentsLevelRadio" id="studentsRdHighLevel" value="HIGH_SCHOOL">
+                <label class="form-check-label font-weight-bold" for="studentsRdHighLevel">
+                    Lycée
+                </label>
+            </div>
+            <div class="form-check form-check-inline col-2">
+                <input class="form-check-input" type="radio" name="studentsLevelRadio" id="studentsRdUniversityLevel" value="UNIVERSITY">
+                <label class="form-check-label font-weight-bold" for="studentsRdUniversityLevel">
+                    Université
+                </label>
+            </div>
+        </div>
+        <div id="studentsTableContainer" class="row align-items-center" align="center" style="margin-top: 50px;">
+            <table id="studentsTable" class="table table-bordered" style="width: 100%;" hidden>
+                <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Création</th>
+                      <th scope="col">Modification</th>
+                      <th scope="col">Nom</th>
+                      <th scope="col">Prénom(s)</th>
+                      <th scope="col">Naissance</th>
+                      <th scope="col">Niveau</th>
+                      <th scope="col">Actions</th>
+                    </tr>
+                  </thead>
+                <tbody id="studentsTableBody"></tbody>
+            </table>
+            <div id="studentsDivNoStudent" class="alert alert-warning font-weight-bold" style="width: 100%;">
+                <tr>Aucun étudiant à afficher, si besoin vous pouvez en créer un sur la page d'accueil ! <a href="../index.html">Cliquer ici pour aller sur la page d'accueil</a></tr>
+            </div>
+        </div>
+        <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog bg-danger" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Suppression d'étudiants</h5>
+                    </div>
+                    <div class="modal-body" id="modalBody">
+                    </div>
+                    <div class="modal-footer">
+                        <button id="studentsBtAnnulDelete" type="button" class="btn btn-secondary" data-dismiss="modal">Non</button>
+                        <button id="studentsBtConfirmDelete" class="btn btn-primary">Oui</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Begin: Include js file -->
+        <script src="../js/student.js" type="module" async></script>
+        <!-- End: Include js file -->
+    </div>
+    <!-- Begin: Include plugins -->
+    <script src="../js/plugins/jquery.min.js"></script>
+    <script src="../js/plugins/bootstrap.bundle.js"></script>
+    <script src="../js/plugins/bootstrap.js"></script>
+    <script src="../js/plugins/axios.js"></script>
+    <script src="../js/plugins/bootstrap-msg.js"></script>
+    <script src="../js/plugins/waitMe.min.js"></script>
+    <!-- End: Include plugins -->
+</body>
+
+</html>

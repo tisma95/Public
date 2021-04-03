@@ -1,0 +1,66 @@
+<div class="modal fade" id="modalAddClassroom" tabindex="-1" role="dialog" data-backdrop="static"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Nouvelle classe</h5>
+            </div>
+            <div class="modal-body">
+                <form id="addClassroomForm">
+                    <div class="form-group row">
+                        <label for="addClassroomTxtClassroomName" class="col-sm-2 col-form-label">Nom</label>
+                        <div class="col-sm-10">
+                            <input id="addClassroomTxtClassroomName" type="text" class="form-control is-invalid"
+                                placeholder="Entrer le nom de la classe" required />
+                            <small class="form-text text-muted">
+                                Le nom doit être constitué d'au moins deux caractères !
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="addClassroomTxtClassroomCapacity" class="col-sm-2 col-form-label">Capacité</label>
+                        <div class="col-sm-10">
+                            <input id="addClassroomTxtClassroomCapacity" type="number" min=2 max=100 class="form-control is-invalid" placeholder="Entrer le nombre maximum d'étudiants" required />
+                            <small class="form-text text-muted">
+                                Le nombre maximum d'étudiants doit être compris entre 2 et 100 !
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="rdLevel" class="col-sm-2 col-form-label">Niveau</label>
+                        <div class="col-sm-10">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="addClassroomRdChoicePrimary" name="levelChoice"
+                                    class="custom-control-input" />
+                                <label class="custom-control-label" for="addClassroomRdChoicePrimary">Primaire</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline col-sm-2">
+                                <input type="radio" id="addClassroomRdChoiceCollege" name="levelChoice"
+                                    class="custom-control-input" />
+                                <label class="custom-control-label" for="addClassroomRdChoiceCollege">Collège</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline col-sm-2">
+                                <input type="radio" id="addClassroomRdChoiceHighSchool" name="levelChoice"
+                                    class="custom-control-input" />
+                                <label class="custom-control-label" for="addClassroomRdChoiceHighSchool">Lycée</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline col-sm-2">
+                                <input type="radio" id="addClassroomRdChoiceUniversity" name="levelChoice"
+                                    class="custom-control-input" />
+                                <label class="custom-control-label"
+                                    for="addClassroomRdChoiceUniversity">Université</label>
+                            </div>
+                            <small class="form-text text-muted">
+                                Vous devez selectionner au moins un niveau !
+                            </small>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <button id="addClassroomBtAdd" type="submit" class="btn btn-primary" disabled>Ajouter</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

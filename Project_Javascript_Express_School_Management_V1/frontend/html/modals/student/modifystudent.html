@@ -1,0 +1,74 @@
+<div class="modal fade" id="modalModifyStudent" tabindex="-1" role="dialog" data-backdrop="static"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modification d'un élève</h5>
+            </div>
+            <div class="modal-body">
+                <form id="modifyStudentForm">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="modifyStudentSelectLevel">Niveau</label>
+                        </div>
+                        <select class="custom-select" id="modifyStudentSelectLevel">
+                            <option selected>Selectionner un niveau...</option>
+                            <option value="PRIMARY">Primaire</option>
+                            <option value="COLLEGE">Collège</option>
+                            <option value="HIGH_SCHOOL">Lycée</option>
+                            <option value="UNIVERSITY">Université</option>
+                        </select>
+                    </div>
+                    <div id="modifyStudentDivNoStudent" class="alert alert-warning" role="alert" style="display:none;">
+                    </div>
+                    <div class="input-group mb-3" id="modifyStudentDivSelectStudent" style="display:none;">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="modifyStudentSelectStudent">Elèves</label>
+                        </div>
+                        <select class="custom-select" id="modifyStudentSelectStudent">
+                            <option selected>Selectionner un élève...</option>
+                        </select>
+                    </div>
+                    <div id="modifyStudentDivStudentForm" style="display:none;">
+                        <div class="form-group row">
+                            <label for="modifyStudentTxtStudentLastName" class="col-sm-12 col-form-label">Nom</label>
+                            <div class="col-sm-12">
+                                <input id="modifyStudentTxtStudentLastName" type="text" class="form-control is-valid" placeholder="Entrer le nom de l'élève" required />
+                                <small class="form-text text-muted">
+                                    Le nom doit être constitué d'au moins deux caractères !
+                                </small>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="modifyStudentTxtStudentFirstName" class="col-sm-12 col-form-label">Prénom(s)</label>
+                            <div class="col-sm-12">
+                                <input id="modifyStudentTxtStudentFirstName" type="text" class="form-control is-valid" placeholder="Entrer le(s) prénom(s) de l'élève" required />
+                                <small class="form-text text-muted">
+                                    Le(s) prénom(s) doit(doivent) être constitué(s) d'au moins deux caractères !
+                                </small>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="modifyStudentTxtStudentBirthday" class="col-sm-12 col-form-label">Naissance</label>
+                            <div class="col-sm-12">
+                                <input id="modifyStudentTxtStudentBirthday" type="date" class="form-control is-valid" placeholder="Entrer la date de naissance de l'élève" required />
+                                <small class="form-text text-muted">
+                                    L'élève doit avoir au moins 3 ans !
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="modifyStudentBtClose" type="button" class="btn btn-secondary"
+                            data-dismiss="modal">Fermer</button>
+                        <button id="modifyStudentBtModify" type="submit" class="btn btn-primary"
+                            disabled>Modifier</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Begin: Include js file -->
+    <script src="js/modals/student/modifystudentmodal.js" type="module" async></script>
+    <!-- End: Include js file -->
+</div>

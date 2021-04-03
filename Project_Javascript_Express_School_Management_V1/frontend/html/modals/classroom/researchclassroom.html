@@ -1,0 +1,45 @@
+<div class="modal fade" id="modalResearchClassroom" tabindex="-1" role="dialog" data-backdrop="static"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Recherche de classes</h5>
+            </div>
+            <div class="modal-body">
+                <form id="researchClassroomForm">
+                    <div class="form-group row">
+                        <label for="researchClassroomTxtClassroomName" class="col-sm-2 col-form-label">Nom</label>
+                        <div class="col-sm-10">
+                            <input id="researchClassroomTxtClassroomName" type="text" class="form-control is-invalid"
+                                placeholder="Entrer le nom de la classe" required />
+                            <small class="form-text text-muted">
+                                Le nom doit être constitué d'au moins deux caractères !
+                            </small>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <button id="researchClassroomBtResearch" type="submit" class="btn btn-primary" disabled>Rechercher</button>
+                    </div>
+                </form>
+                <div id="researchClassroomDivNothing" class="alert alert-info" role="alert" style="display:none;">
+                </div>
+                <table id="researchClassroomTableResult" class="table" style="display:none; margin-left: 130px;">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Capacité</th>
+                            <th scope="col">Level</th>
+                        </tr>
+                    </thead>
+                    <tbody id="researchClassroomTableBodyResult">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Begin: Include js file -->
+    <script src="/js/modals/classroom/researchclassroommodal.js" type="module" async></script>
+    <!-- End: Include js file -->
+</div>

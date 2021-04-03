@@ -1,0 +1,57 @@
+<div class="modal fade" id="modalAddSubject" tabindex="-1" role="dialog" data-backdrop="static"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Nouvelle matière</h5>
+            </div>
+            <div class="modal-body">
+                <form id="addSubjectForm">
+                    <div class="form-group row">
+                        <label for="addSubjectTxtSubjectName" class="col-sm-2 col-form-label">Nom</label>
+                        <div class="col-sm-10">
+                            <input id="addSubjectTxtSubjectName" type="text" class="form-control is-invalid"
+                                placeholder="Entrer le nom de la matière" required />
+                            <small class="form-text text-muted">
+                                Le nom doit être constitué d'au moins deux caractères !
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="rdLevel" class="col-sm-2 col-form-label">Niveau</label>
+                        <div class="col-sm-10">
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" id="addSubjectRdChoicePrimary" name="levelChoice"
+                                    class="custom-control-input" />
+                                <label class="custom-control-label" for="addSubjectRdChoicePrimary">Primaire</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline col-sm-2">
+                                <input type="radio" id="addSubjectRdChoiceCollege" name="levelChoice"
+                                    class="custom-control-input" />
+                                <label class="custom-control-label" for="addSubjectRdChoiceCollege">Collège</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline col-sm-2">
+                                <input type="radio" id="addSubjectRdChoiceHighSchool" name="levelChoice"
+                                    class="custom-control-input" />
+                                <label class="custom-control-label" for="addSubjectRdChoiceHighSchool">Lycée</label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline col-sm-2">
+                                <input type="radio" id="addSubjectRdChoiceUniversity" name="levelChoice"
+                                    class="custom-control-input" />
+                                <label class="custom-control-label"
+                                    for="addSubjectRdChoiceUniversity">Université</label>
+                            </div>
+                            <small class="form-text text-muted">
+                                Vous devez selectionner au moins un niveau !
+                            </small>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <button id="addSubjectBtAdd" type="submit" class="btn btn-primary" disabled>Ajouter</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

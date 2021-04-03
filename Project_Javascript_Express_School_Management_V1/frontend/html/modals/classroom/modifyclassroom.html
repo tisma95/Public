@@ -1,0 +1,64 @@
+<div class="modal fade" id="modalModifyClassroom" tabindex="-1" role="dialog" data-backdrop="static"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modification de classes</h5>
+            </div>
+            <div class="modal-body">
+                <form id="modifyClassroomForm">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="modifyClassroomSelectLevel">Niveau</label>
+                        </div>
+                        <select class="custom-select" id="modifyClassroomSelectLevel">
+                            <option selected>Selectionner un niveau...</option>
+                            <option value="PRIMARY">Primaire</option>
+                            <option value="COLLEGE">Collège</option>
+                            <option value="HIGH_SCHOOL">Lycée</option>
+                            <option value="UNIVERSITY">Université</option>
+                        </select>
+                    </div>
+                    <div id="modifyClassroomDivNoClassroom" class="alert alert-warning" role="alert" style="display:none;">
+                    </div>
+                    <div class="input-group mb-3" id="modifyClassroomDivSelectClassroom" style="display:none;">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="modifyClassroomSelectClassroom">Classe</label>
+                        </div>
+                        <select class="custom-select" id="modifyClassroomSelectClassroom">
+                            <option selected>Selectionner une classe...</option>
+                        </select>
+                    </div>
+                    <div id="modifyClassroomFormModify" style="display:none;">
+                        <div class="form-group row">
+                            <label for="modifyClassroomTxtClassroomName" class="col-sm-12 col-form-label">Nouveau Nom</label>
+                            <div class="col-sm-12">
+                                <input id="modifyClassroomTxtClassroomName" type="text" class="form-control is-invalid"
+                                    placeholder="Entrer le nouveau nom de la classe" required />
+                                <small class="form-text text-muted">
+                                    Le nom doit être constitué d'au moins deux caractères !
+                                </small>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="modifyClassroomTxtClassroomCapacity" class="col-sm-12 col-form-label">Nouvelle Capacité</label>
+                            <div class="col-sm-12">
+                                <input id="modifyClassroomTxtClassroomCapacity" type="number" min=2 max=100 class="form-control is-invalid" placeholder="Entrer la nouvelle capacité de la classe" required />
+                                <small class="form-text text-muted">
+                                    Le nombre maximum d'étudiants doit être compris entre 2 et 100 !
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="modifyClassroomBtClose" type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <button id="modifyClassroomBtModify" type="submit" class="btn btn-primary" disabled>Modifier</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Begin: Include js file -->
+    <script src="js/modals/subject/modifysubjectmodal.js" type="module" async></script>
+    <!-- End: Include js file -->
+</div>

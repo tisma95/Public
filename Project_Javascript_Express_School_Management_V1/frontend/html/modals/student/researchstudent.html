@@ -1,0 +1,64 @@
+<div class="modal fade" id="modalResearchStudent" tabindex="-1" role="dialog" data-backdrop="static"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Recherche d'étudiants</h5>
+            </div>
+            <div class="modal-body">
+                <form id="researchStudentForm">
+                    <div class="form-group row">
+                        <label for="researchStudentTxtStudentLastName" class="col-sm-2 col-form-label">Nom</label>
+                        <div class="col-sm-10">
+                            <input id="researchStudentTxtStudentLastName" type="text" class="form-control" placeholder="Entrer le nom de l'élève"/>
+                            <small class="form-text text-muted">
+                                Laisser vide si ne fait pas partir de vos critères de recherches !
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="researchStudentTxtStudentFirstName" class="col-sm-2 col-form-label">Prénom(s)</label>
+                        <div class="col-sm-10">
+                            <input id="researchStudentTxtStudentFirstName" type="text" class="form-control" placeholder="Entrer le(s) prénom(s) de l'élève"/>
+                            <small class="form-text text-muted">
+                                Laisser vide si ne fait pas partir de vos critères de recherches !
+                            </small>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="researchStudentTxtStudentBirthday" class="col-sm-2 col-form-label">Naissance</label>
+                        <div class="col-sm-10">
+                            <input id="researchStudentTxtStudentBirthday" type="date" class="form-control" placeholder="Entrer la date de naissance de l'élève" />
+                            <small class="form-text text-muted">
+                                Laisser vide si ne fait pas partir de vos critères de recherches !
+                            </small>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                        <button id="researchStudentBtResearch" type="submit" class="btn btn-primary"
+                            disabled>Rechercher</button>
+                    </div>
+                </form>
+                <div id="researchStudentDivNothing" class="alert alert-info" role="alert" style="display:none;">
+                </div>
+                <table id="researchStudentTableResult" class="table" style="display:none;">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nom</th>
+                            <th scope="col">Prénom(s)</th>
+                            <th scope="col">Naissance</th>
+                            <th scope="col">Niveau</th>
+                        </tr>
+                    </thead>
+                    <tbody id="researchStudentTableBodyResult">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- Begin: Include js file -->
+    <script src="/js/modals/student/researchstudentmodal.js" type="module" async></script>
+    <!-- End: Include js file -->
+</div>

@@ -1,0 +1,45 @@
+<div class="modal fade" id="modalDeleteStudent" tabindex="-1" role="dialog" data-backdrop="static"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Suppression d'un élève</h5>
+            </div>
+            <div class="modal-body">
+                <form id="deleteStudentForm">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="deleteStudentSelectLevel">Niveau</label>
+                        </div>
+                        <select class="custom-select" id="deleteStudentSelectLevel">
+                            <option selected>Selectionner un niveau...</option>
+                            <option value="PRIMARY">Primaire</option>
+                            <option value="COLLEGE">Collège</option>
+                            <option value="HIGH_SCHOOL">Lycée</option>
+                            <option value="UNIVERSITY">Université</option>
+                        </select>
+                    </div>
+                    <div id="deleteStudentDivNoStudent" class="alert alert-warning" role="alert" style="display:none;">
+                    </div>
+                    <div class="input-group mb-3" id="deleteStudentDivSelectStudent" style="display:none;">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="deleteStudentSelectStudent">Elèves</label>
+                        </div>
+                        <select class="custom-select" id="deleteStudentSelectStudent">
+                            <option selected>Selectionner un élève...</option>
+                        </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="deleteStudentBtClose" type="button" class="btn btn-secondary"
+                            data-dismiss="modal">Fermer</button>
+                        <button id="deleteStudentBtDelete" type="submit" class="btn btn-primary"
+                            disabled>Supprimer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Begin: Include js file -->
+    <script src="js/modals/student/deletestudentmodal.js" type="module" async></script>
+    <!-- End: Include js file -->
+</div>
